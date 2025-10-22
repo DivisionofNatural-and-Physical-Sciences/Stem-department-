@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry - Division of Natural and Physical Sciences</title>
+    <style>
+        :root{
+            --bg:#064e3b;
+            --text:#1a202c;
+            --muted:#4a5568;
+            --accent:#2d7a6b;
+            --accent-light:#7dd3c1;
+            --success:#22c55e;
+            --warning:#f59e0b;
+            --max-width:1000px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+        }
+        html,body{
+            height:100%;
+            margin:0;
+            background: var(--bg) url('download (1).webp') no-repeat center center fixed;
+            background-size:cover;
+            color:var(--text);
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        main{
+            max-width:var(--max-width);
+            margin:2rem auto;
+            padding:2rem;
+            line-height:1.7;
+            background:rgba(255,255,255,0.98);
+            border-radius:var(--border-radius);
+            box-shadow:var(--shadow-lg);
+        }
+        h1{
+            font-size:2.5rem;
+            margin:0 0 2rem;
+            text-align:center;
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            background-clip:text;
+            padding-bottom:1rem;
+            font-weight:800;
+            letter-spacing:-0.5px;
+            position:relative;
+        }
+        h1::after{
+            content:'';
+            position:absolute;
+            bottom:0;
+            left:50%;
+            transform:translateX(-50%);
+            width:80px;
+            height:4px;
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius:2px;
+        }
+        h2{
+            font-size:1.75rem;
+            margin:3rem 0 1.5rem;
+            color:var(--accent);
+            font-weight:700;
+            position:relative;
+            padding-left:2rem;
+        }
+        h2::before{
+            content:'';
+            position:absolute;
+            left:0;
+            top:50%;
+            transform:translateY(-50%);
+            width:6px;
+            height:100%;
+            background:linear-gradient(180deg, var(--accent), var(--accent-light));
+            border-radius:3px;
+        }
+        h3{
+            font-size:1.3rem;
+            margin:2rem 0 1rem;
+            color:var(--muted);
+            font-weight:600;
+            border-bottom:2px solid rgba(125,211,193,0.3);
+            padding-bottom:0.5rem;
+        }
+        
+        /* Page introduction styling */
+        .page-intro {
+            background:linear-gradient(135deg, rgba(125,211,193,0.1), rgba(45,122,107,0.1));
+            padding:2rem;
+            border-radius:var(--border-radius);
+            margin:2rem 0 3rem;
+            border-left:5px solid var(--accent-light);
+            box-shadow:var(--shadow-sm);
+            font-size:1.1rem;
+            line-height:1.8;
+            color:var(--muted);
+        }
+        
+        /* Section styling for better separation */
+        section{
+            background:rgba(255,255,255,0.7);
+            margin:3rem 0;
+            padding:2.5rem;
+            border-radius:var(--border-radius);
+            border:1px solid rgba(125,211,193,0.2);
+            box-shadow:var(--shadow-md);
+            position:relative;
+            transition:all 0.3s ease;
+        }
+        section:hover{
+            box-shadow:var(--shadow-lg);
+            transform:translateY(-2px);
+        }
+        section::before{
+            content:'';
+            position:absolute;
+            top:-2px;
+            left:50%;
+            transform:translateX(-50%);
+            width:60px;
+            height:4px;
+            background:linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius:2px;
+        }
+        
+        /* Paragraph spacing */
+        p{
+            margin:1.2rem 0;
+            font-weight:400;
+            line-height:1.8;
+            color:var(--text);
+        }
+        
+        /* List styling */
+        ul{
+            margin:1.5rem 0;
+            padding-left:0;
+            list-style:none;
+        }
+        ul li{
+            margin:1rem 0;
+            padding:1rem 1.5rem;
+            background:rgba(125,211,193,0.08);
+            border-left:4px solid var(--accent-light);
+            border-radius:8px;
+            line-height:1.6;
+            font-weight:500;
+            color:var(--text);
+            position:relative;
+            transition:all 0.3s ease;
+        }
+        ul li:hover{
+            background:rgba(125,211,193,0.15);
+            transform:translateX(5px);
+        }
+        ul li::before{
+            content:'✓';
+            position:absolute;
+            left:-12px;
+            top:50%;
+            transform:translateY(-50%);
+            background:var(--success);
+            color:white;
+            width:24px;
+            height:24px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:0.8rem;
+            font-weight:700;
+        }
+        
+        /* Table styling */
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin:2rem 0;
+            background:rgba(255,255,255,0.95);
+            border-radius:var(--border-radius);
+            overflow:hidden;
+            box-shadow:var(--shadow-md);
+        }
+        table th{
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            color:white;
+            padding:1rem;
+            text-align:left;
+            font-weight:700;
+            font-size:0.95rem;
+            letter-spacing:0.5px;
+        }
+        table td{
+            padding:1rem;
+            text-align:left;
+            font-weight:500;
+            color:var(--text);
+            border-bottom:1px solid rgba(125,211,193,0.2);
+            transition:background-color 0.3s ease;
+        }
+        table tr:nth-child(even){
+            background:rgba(125,211,193,0.05);
+        }
+        table tr:hover{
+            background:rgba(125,211,193,0.15);
+        }
+        table td:first-child{
+            font-family:'Courier New', monospace;
+            font-weight:700;
+            color:var(--accent);
+            background:rgba(125,211,193,0.1);
+        }
+        
+        /* Year sections styling */
+        .year-section{
+            margin:2.5rem 0;
+            padding:1.5rem;
+            border-left:4px solid var(--accent);
+            background:linear-gradient(135deg, rgba(125,211,193,0.08), rgba(45,122,107,0.05));
+            border-radius:8px;
+        }
+        
+        /* Totals styling */
+        .totals{
+            font-weight:700;
+            color:var(--accent);
+            margin:2rem 0;
+            padding:1.5rem;
+            background:linear-gradient(135deg, rgba(125,211,193,0.15), rgba(45,122,107,0.1));
+            border-radius:var(--border-radius);
+            border:2px solid rgba(125,211,193,0.3);
+            text-align:center;
+            font-size:1.1rem;
+        }
+        
+        /* Highlight boxes for important info */
+        .highlight-box{
+            background:linear-gradient(135deg, rgba(34,197,94,0.1), rgba(34,197,94,0.05));
+            border:2px solid rgba(34,197,94,0.3);
+            border-radius:var(--border-radius);
+            padding:1.5rem;
+            margin:1.5rem 0;
+            position:relative;
+        }
+        .highlight-box::before{
+            content:'💡';
+            position:absolute;
+            top:-12px;
+            left:20px;
+            background:white;
+            padding:0 8px;
+            font-size:1.2rem;
+        }
+        
+        /* Back link styling */
+        .back-link{
+            display:inline-flex;
+            align-items:center;
+            gap:0.5rem;
+            margin-top:3rem;
+            padding:1rem 2rem;
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            color:white;
+            text-decoration:none;
+            border-radius:50px;
+            font-weight:600;
+            transition:all 0.3s ease;
+            box-shadow:var(--shadow-md);
+        }
+        .back-link:hover{
+            transform:translateY(-3px);
+            box-shadow:var(--shadow-lg);
+        }
+        .back-link::before{
+            content:'←';
+            font-size:1.2rem;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            main{
+                margin:1rem;
+                padding:1.5rem;
+            }
+            h1{
+                font-size:2rem;
+            }
+            h2{
+                font-size:1.5rem;
+                padding-left:1.5rem;
+            }
+            section{
+                padding:1.5rem;
+            }
+            table td, table th{
+                padding:0.75rem 0.5rem;
+                font-size:0.9rem;
+            }
+        }
+        
+        a{color:var(--accent);text-decoration:none;font-weight:500}
+        a:hover{text-decoration:underline;color:var(--accent-light)}
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Chemistry</h1>
+        <div class="page-intro">
+            <p>Explore the fascinating world of chemistry through our comprehensive program that combines theoretical knowledge with hands-on laboratory experience. Our Chemistry Department prepares students for successful careers in research, industry, healthcare, and education while developing critical thinking and analytical problem-solving skills.</p>
+        </div>
+
+        <section aria-labelledby="chem-role">
+            <h2 id="chem-role">Role</h2>
+            <p>The role of the Chemistry Department is to develop the ability of students to apply the techniques of critical analysis to the solution of problems. The Department strives to prepare majors with a thorough and rigorous background in chemistry.</p>
+        </section>
+
+        <section aria-labelledby="chem-objectives">
+            <h2 id="chem-objectives">Objectives</h2>
+            <p>At the completion of the program, graduates of Chemistry will be able to:</p>
+            <ul>
+                <li>Apply principles and theories of Chemistry.</li>
+                <li>Develop habits of accurate notation and evaluation of laboratory data.</li>
+                <li>Become successful in graduate and professional schools, and careers in the industry and teaching profession.</li>
+                <li>Understand and develop an appreciation of the significance of chemical phenomena in our daily lives.</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="chem-requirements">
+            <h2 id="chem-requirements">Requirements for the Major in Chemistry</h2>
+            <div class="highlight-box">
+                <p><strong>Major Requirements:</strong> A major in Chemistry consists of 42 semester hours of Biology, Chemistry, Mathematics, and Physics courses. Ten (10) 4-credit hour courses; and a 1-credit hour seminar as indicated on the curriculum chart.</p>
+            </div>
+
+            <p>The Chemistry Department also offers a pharmacy technician track and pharmacy technician certification.</p>
+
+            <p>Chemistry majors may select a minor from one of the following areas: Biology, Mathematics, Physics, or Computer Science.</p>
+
+            <h3>Requirements for the Minor in Chemistry</h3>
+            <div class="highlight-box">
+                <p><strong>Minor Requirements:</strong> A minor in Chemistry shall consist of 16 hours of Chemistry with a minimum grade of "C" in each course. The required courses are: CHE 141, CHE 142, CHE 243, and CHE 244.</p>
+            </div>
+        </section>
+
+        <section aria-labelledby="chem-curriculum">
+            <h2 id="chem-curriculum">Chemistry Curriculum (selected)</h2>
+            <table border="1" cellpadding="6" summary="Chemistry curriculum selected courses">
+                <thead>
+                    <tr>
+                        <th>Course No.</th>
+                        <th>Course</th>
+                        <th>Cr</th>
+                        <th>Prerequisite</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ORN 110</td><td>Freshmen Orientation</td><td>1</td><td>—</td></tr>
+                    <tr><td>CSC 132</td><td>Foundations of Computing</td><td>3</td><td>—</td></tr>
+                    <tr><td>FIN 150</td><td>Personal Financial Management</td><td>2</td><td>—</td></tr>
+                    <tr><td>ENG 133</td><td>Composition</td><td>3</td><td>—</td></tr>
+                    <tr><td>MAT 133</td><td>College Algebra</td><td>3</td><td>—</td></tr>
+                    <tr><td>MAT 136</td><td>Trigonometry</td><td>3</td><td>—</td></tr>
+                    <tr><td>CHE 141/L</td><td>General Chemistry I/Lab</td><td>4</td><td>MAT 133</td></tr>
+                    <tr><td>CHE 142/L</td><td>General Chemistry II/Lab</td><td>4</td><td>CHE 141</td></tr>
+                    <tr><td>CHE 110</td><td>Scientific Literacy &amp; Critical Problem Solving</td><td>1</td><td>CHE 141 co-req</td></tr>
+                    <tr><td>CHE 311</td><td>Chemistry Seminar</td><td>1</td><td>JR and consent</td></tr>
+                    <tr><td>CHE 243/L</td><td>Organic Chemistry I/Lab</td><td>4</td><td>CHE 142</td></tr>
+                    <tr><td>CHE 244/L</td><td>Organic Chemistry II/Lab</td><td>4</td><td>CHE 243</td></tr>
+                    <tr><td>CHE 345/L</td><td>Quantitative Analysis I/Lab</td><td>4</td><td>CHE 142, MAT 133</td></tr>
+                    <tr><td>CHE 346/L</td><td>Quantitative Analysis II/Lab</td><td>4</td><td>CHE 345</td></tr>
+                    <tr><td>CHE 440/L</td><td>Instrumental Analysis/Lab</td><td>4</td><td>CHE 346</td></tr>
+                    <tr><td>CHE 446/L</td><td>Inorganic Chemistry/Lab</td><td>4</td><td>CHE 345 and MAT 241</td></tr>
+                    <tr><td>CHE 447/L</td><td>Physical Chemistry I/Lab</td><td>4</td><td>MAT 240</td></tr>
+                    <tr><td>CHE 448/L</td><td>Physical Chemistry II/Lab</td><td>4</td><td>MAT 136</td></tr>
+                    <tr><td>PHY 241</td><td>General Physics I</td><td>4</td><td>MAT 136</td></tr>
+                    <tr><td>PHY 242</td><td>General Physics II</td><td>4</td><td>PHY 241</td></tr>
+                </tbody>
+            </table>
+
+            <div class="totals">
+                <strong>📊 Program Summary:</strong> Major Courses: 52 credits | Major Hours: 52 | General Education Core: 53 | Total: 124 credits
+            </div>
+        </section>
+
+        <section aria-labelledby="chem-pathway">
+            <h2 id="chem-pathway">Academic Pathway for Chemistry</h2>
+            <h3>Freshman Year</h3>
+            <table border="1" cellpadding="6" summary="Chemistry freshman year">
+                <thead>
+                    <tr><th>Semester I</th><th>Cr</th><th>Semester II</th><th>Cr</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>ORN 110 - Freshman Orientation</td><td>1</td><td>CPI 101 - Introduction to Career Pathways</td><td>1</td></tr>
+                    <tr><td>ENG 133 - Composition</td><td>3</td><td>ENG 200's - Literature Option</td><td>3</td></tr>
+                    <tr><td>CHE 141/L - General Chemistry I/Lab</td><td>4</td><td>CHE 142/L - General Chemistry II/Lab</td><td>4</td></tr>
+                    <tr><td>CHE 110 - Scientific Literacy &amp; Critical Problem Solving</td><td>1</td><td>FIN 150 - Personal Financial Management</td><td>2</td></tr>
+                    <tr><td>MAT 133 - College Algebra</td><td>3</td><td>MAT 136 - College Trigonometry</td><td>3</td></tr>
+                    <tr><td>LCC 120 - First-Year Reading Seminar</td><td>1</td><td>COM 230 - Public Communication</td><td>3</td></tr>
+                    <tr><td>LCC 112 - First-Year Enrichment Seminar</td><td>1</td><td>PER - Physical Education (Choice)</td><td>2</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Sophomore Year</h3>
+            <table border="1" cellpadding="6" summary="Chemistry sophomore year">
+                <thead>
+                    <tr><th>Semester I</th><th>Cr</th><th>Semester II</th><th>Cr</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>CHE 243 - Organic Chemistry I</td><td>4</td><td>CHE 244 - Organic Chemistry II</td><td>4</td></tr>
+                    <tr><td>MAT 240 - Calculus I</td><td>4</td><td>MAT 241 - Calculus II</td><td>4</td></tr>
+                    <tr><td>BIO 225 - Scientific Writing</td><td>2</td><td>LCC 210 - Sophomore Seminar</td><td>1</td></tr>
+                    <tr><td>REL 130 - World Religion</td><td>3</td><td>HIS - History (choice)</td><td>3</td></tr>
+                    <tr><td>CHE 311 - Chemistry Seminar I</td><td>1</td><td></td><td></td></tr>
+                </tbody>
+            </table>
+
+            <h3>Junior Year</h3>
+            <table border="1" cellpadding="6" summary="Chemistry junior year">
+                <thead>
+                    <tr><th>Semester I</th><th>Cr</th><th>Semester II</th><th>Cr</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>CHE 345 - Quantitative Analysis I</td><td>4</td><td>CHE 346 - Quantitative Analysis II</td><td>4</td></tr>
+                    <tr><td>PHY 241 - Gen. Physics I</td><td>4</td><td>PHY 242 - Gen. Physics II</td><td>4</td></tr>
+                    <tr><td>FRE/SPN - Conversational Language</td><td>3</td><td>CSC 132 - Foundations of Computing</td><td>3</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Senior Year</h3>
+            <table border="1" cellpadding="6" summary="Chemistry senior year">
+                <thead>
+                    <tr><th>Semester I</th><th>Cr</th><th>Semester II</th><th>Cr</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>CHE 447 - Physical Chemistry I</td><td>4</td><td>CHE 448 - Physical Chemistry II</td><td>4</td></tr>
+                    <tr><td>CHE 440 - Instrumental Analysis</td><td>4</td><td>CHE 446 - Advanced Inorganic Chemistry</td><td>4</td></tr>
+                    <tr><td>General Electives</td><td>6</td><td>General Electives</td><td>6</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section aria-labelledby="pharm-track">
+            <h2 id="pharm-track">Chemistry Curriculum — Pharmacy Technician</h2>
+            <div class="highlight-box">
+                <p><strong>Specialized Track:</strong> The Pharmacy Technician track includes a focused set of courses and a certificate option. Major hours and total hours vary; students should consult the curriculum chart for complete requirements.</p>
+            </div>
+
+            <h3>Pharmacy Technician Certificate (selected)</h3>
+            <table border="1" cellpadding="6" summary="Pharmacy technician certificate courses">
+                <thead>
+                    <tr><th>Semester</th><th>Course</th><th>Cr</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Fall</td><td>CPI 101 - Introduction to Career Pathways</td><td>1</td></tr>
+                    <tr><td>Fall</td><td>CPI 141 - Introduction to Pharmacy Technician I</td><td>4</td></tr>
+                    <tr><td>Fall</td><td>CPI 241 - Pharmacology I</td><td>4</td></tr>
+                    <tr><td>Fall</td><td>CPI 331 - Chemistry Internship I (Practicum I)</td><td>3</td></tr>
+                    <tr><td>Spring</td><td>CPI 142 - Introduction to Pharmacy Technician II</td><td>4</td></tr>
+                    <tr><td>Spring</td><td>CPI 143 - Pharmacy Calculations and Mathematics</td><td>2</td></tr>
+                    <tr><td>Spring</td><td>CHE 242 - Introduction to Pharmacology II</td><td>4</td></tr>
+                    <tr><td>Spring</td><td>CHE 332 - Chemistry Internship II (Practicum II)</td><td>3</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <p><a href="index.html" class="back-link">Back to Home</a></p>
+    </main>
+</body>
+</html>

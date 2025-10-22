@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Offerings - Division of Natural and Physical Sciences</title>
+    <style>
+        :root{
+            --bg:#064e3b;
+            --text:#1a202c;
+            --muted:#4a5568;
+            --accent:#2d7a6b;
+            --accent-light:#7dd3c1;
+            --success:#22c55e;
+            --warning:#f59e0b;
+            --max-width:1000px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+        }
+        html,body{height:100%;margin:0;background: var(--bg) url('OIP (6).webp') no-repeat center center fixed;background-size:cover;color:var(--text);font-family:Segoe UI, Roboto, -apple-system, "Helvetica Neue", Arial, sans-serif}
+        main{max-width:var(--max-width);margin:28px auto;padding:0 18px;line-height:1.6}
+        h1{
+            font-size:2rem;
+            margin:0 0 2rem;
+            text-align:center;
+            border-bottom:3px solid var(--accent);
+            padding-bottom:0.8rem;
+            font-weight:700;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), -1px -1px 2px rgba(255,255,255,0.7);
+            letter-spacing: 0.5px;
+        }
+        h2{
+            font-size:1.6rem;
+            margin:3rem 0 1.5rem;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--accent), var(--muted));
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            font-weight:700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+        h3{
+            font-size:1.2rem;
+            margin:1.5rem 0 0.8rem;
+            color:var(--muted);
+            font-weight:600;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+        }
+        
+        /* Section styling for better separation */
+        section{
+            background:rgba(255,255,255,0.96);
+            margin:3rem 0;
+            padding:2rem;
+            border-radius:12px;
+            border:1px solid rgba(125,211,193,0.4);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+            position: relative;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--muted));
+            border-radius: 2px;
+        }
+        
+        section:first-of-type::before {
+            display: none;
+        }
+        
+        /* Page introduction styling */
+        .page-intro {
+            background: rgba(255,255,255,0.98);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 5px solid var(--muted);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        
+        .page-intro p {
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #1a202c;
+            font-weight: 600;
+            text-shadow: none;
+        }
+        
+        /* Paragraph spacing */
+        p{
+            margin:1rem 0;
+            font-weight:500;
+            color: rgba(11, 13, 17, 1);
+            text-shadow: none;
+        }
+        
+        /* Course card styling */
+        .course-card {
+            background: rgba(255, 255, 255, 0.98);
+            margin: 1rem 0;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .course-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin: 0 0 0.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            text-shadow: none;
+        }
+        
+        .course-credits {
+            background: var(--accent);
+            color: var(--bg);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        .course-description {
+            line-height: 1.7;
+            color: #2d3748;
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-shadow: none;
+        }
+        
+        .course-offered {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4a5568;
+            text-shadow: none;
+        }
+        
+        .offered-badge {
+            background: var(--muted);
+            color: var(--bg);
+            padding: 0.2rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .offered-badge.frequent {
+            background: #22c55e;
+        }
+        
+        .offered-badge.regular {
+            background: var(--accent);
+        }
+        
+        .offered-badge.occasional {
+            background: #f59e0b;
+        }
+        
+        /* Course number styling */
+        .course-number {
+            font-family: 'Courier New', monospace;
+            background: rgba(6, 78, 59, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+        
+        /* List styling */
+        ul{
+            margin:1rem 0;
+            padding-left:2rem;
+        }
+        ul li{
+            margin:0.5rem 0;
+            line-height:1.5;
+            font-weight:500;
+            text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+        }
+        
+        /* Table styling */
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin:1.5rem 0;
+            background:rgba(255,255,255,0.9);
+            border-radius:6px;
+            overflow:hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        table th{
+            background:var(--accent);
+            color:var(--bg);
+            padding:12px 8px;
+            text-align:left;
+            font-weight:700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        table td{
+            border:1px solid rgba(125,211,193,0.3);
+            padding:10px 8px;
+            text-align:left;
+            font-weight:500;
+            text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+        }
+        table tr:nth-child(even){
+            background:rgba(255,255,255,0.7);
+        }
+        table tr:nth-child(even){
+            background:rgba(255,255,255,0.03);
+        }
+        
+        /* Year sections styling */
+        .year-section{
+            margin:2rem 0;
+            padding:1rem;
+            border-left:3px solid var(--muted);
+            background:rgba(154,230,180,0.05);
+        }
+        
+        /* Totals styling */
+        .totals{
+            font-weight:600;
+            color:var(--accent);
+            margin:1rem 0;
+            padding:0.5rem;
+            background:rgba(125,211,193,0.1);
+            border-radius:4px;
+        }
+        
+        /* Back link styling */
+        .back-link{
+            display:inline-block;
+            margin-top:3rem;
+            padding:1rem 2rem;
+            background:var(--accent);
+            color:var(--bg);
+            text-decoration:none;
+            border-radius:8px;
+            font-weight:600;
+            transition:all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        .back-link:hover{
+            background:var(--muted);
+            transform:translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+        }
+        
+        a{color:var(--accent);text-decoration:none}
+        a:hover{text-decoration:underline}
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            main {
+                padding: 0 1rem;
+                margin: 1rem auto;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+                margin: 2rem 0 1rem;
+                padding: 0.6rem 1rem;
+            }
+            
+            section {
+                margin: 2rem 0;
+                padding: 1.5rem;
+            }
+            
+            .course-card {
+                padding: 1rem;
+                margin: 0.8rem 0;
+            }
+            
+            .course-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .course-credits {
+                margin-left: 0;
+                align-self: flex-start;
+            }
+            
+            .page-intro {
+                padding: 1.2rem;
+                margin: 1.5rem 0;
+            }
+            
+            .page-intro p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.4rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            .course-card {
+                padding: 0.8rem;
+            }
+            
+            .course-title {
+                font-size: 1rem;
+            }
+            
+            .back-link {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Course Offerings</h1>
+        <div class="page-intro">
+            <p>This page lists course offerings, schedules, and descriptions for the Division of Natural and Physical Sciences departments. Each course card contains essential information including credit hours, detailed descriptions, and offering schedules.</p>
+        </div>
+
+        <section aria-label="Biology courses">
+            <h2>Biology</h2>
+            
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 131: Biological Science</span>
+                    <span class="course-credits">3 Credits</span>
+                </div>
+                <p class="course-description">A survey course introducing principles of biology through a study of the plant and animal kingdoms. Emphasis will be placed on cellular biology, gross anatomy, reproduction, heredity, and ecology. This course is designed to meet the needs of non-science majors. Three lectures per week. This class is unsuitable for STEM majors.</p>
+                <div class="course-offered">Offered: F/S</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 141/142: General Biology I, II</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">A study of the fundamental principles of biology, followed by a survey of three domains of life. Emphasis is on the chemical basis of life, cellular structure and function, energy transformations, storage and transfer of genetic information, evolution, and biodiversity. The two semesters must be taken in sequence, with completion of BIO 141 with a C or better required for BIO 142. Three lectures and one laboratory experience per week.</p>
+                <div class="course-offered">Offered: F/S</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 143: Biological Science for Education</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">A survey course introducing principles of biology through a study of the plant and animal kingdoms. Emphasis will be placed on the scientific method, cellular biology, reproduction, heredity, and ecology. Designed for non-science majors. Three lectures per week and one laboratory experience per week. This class is unsuitable for STEM majors.</p>
+                <div class="course-offered">Offered: S</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 221: Biology Laboratory Techniques and Data Analysis</span>
+                    <span class="course-credits">2 Credits</span>
+                </div>
+                <p class="course-description">Lab-based course offering hands-on experiences with common techniques in the biology laboratory. Practice using equipment such as the microscope and microcentrifuge; teams plan and execute a research project using suitable wet-lab and instrumental techniques.</p>
+                <div class="course-offered">Offered: F/S A/E/O</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 225: Scientific Writing</span>
+                    <span class="course-credits">2 Credits</span>
+                </div>
+                <p class="course-description">Develop students' skills in scientific writing. Intensive writing on scientific topics with detailed feedback on grammar and clarity. Prerequisite: ENG132.</p>
+                <div class="course-offered">Offered: (A) F/S</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 241: Comparative Vertebrate Anatomy</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Study of the evolutionary development of organ systems of vertebrates, including complete dissections. Three lectures and one laboratory per week. Prerequisites: BIO 141 and 142.</p>
+                <div class="course-offered">Offered: As needed</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 242: Embryology</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Descriptive approach to germ cell formation, fertilization, and development of organ systems with reference to experimental morphogenesis. Three lectures and one laboratory per week. Prerequisites: BIO 141 and BIO 142.</p>
+                <div class="course-offered">Offered: S / As needed</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 243: Molecular Biology</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Topics include genome organization and mechanisms controlling DNA replication and repair, transcription, and protein synthesis in prokaryotes and eukaryotes. Emphasis on experimental design and data analysis with readings from primary literature. Prerequisites: BIO 141 and BIO 142.</p>
+                <div class="course-offered">Offered: F/S (A)</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 244: Plant Biology</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Study of plant structure, function, evolution, and cultural applications. Three hours discussion and two hours laboratory per week. Prerequisites: BIO 141 and 142.</p>
+                <div class="course-offered">Offered: As needed</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 315 / BIO 316: Biology Seminars I-II</span>
+                    <span class="course-credits">1 Credit</span>
+                </div>
+                <p class="course-description">Students present oral and written reports on recent advances and problems in biology. One hour per week. Recommended to take one seminar at a time. Prerequisites: BIO 142, BIO 225, junior status.</p>
+                <div class="course-offered">Offered: (A) F/S</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 341: Ecology and Environmental Biology</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Study of organism-environment interactions from an ecological perspective. Four lectures per week. Prerequisite: BIO 131 or BIO 142.</p>
+                <div class="course-offered">Offered: F / As needed</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 343: Genetics</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Study of principles of heredity with emphasis on Mendelian genetics and recent developments. Three lectures and one laboratory per week. Prerequisites: BIO 141 and BIO 142.</p>
+                <div class="course-offered">Offered: S / As needed</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 344 / BIO 345: Human Anatomy and Physiology I & II</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Study of human body structure and function. Designed for Biology and Health & Physical Education majors. Three lectures and one laboratory per week. Taken in sequence; BIO 344 prerequisite for BIO 345. Prerequisites: BIO 141/142.</p>
+                <div class="course-offered">Offered: S/F</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 346: Parasitology</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Study of morphology, life cycles, and distribution of parasitic organisms. Three lectures and one laboratory per week. Prerequisites: BIO 141/142.</p>
+                <div class="course-offered">Offered: As needed</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 347: General Microbiology</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Study of microorganisms' morphology, classification, physiology, and applications to fermentation, food, soil fertility, disease, and industry. Three lectures and one laboratory per week. Prerequisites: CHE 141/142 and BIO 141/142.</p>
+                <div class="course-offered">Offered: F / As needed</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 348 / BIO 348L: Evolution</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Topics include microevolution, macroevolution, speciation, and evolutionary medicine. Prerequisites: BIO 141 and BIO 142 or BIO 131 with instructor permission.</p>
+                <div class="course-offered">Offered: As needed</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 425 / BIO 426: Undergraduate Research I & II</span>
+                    <span class="course-credits">2 Credits</span>
+                </div>
+                <p class="course-description">Research experience with hands-on training; writing-intensive with laboratory notebooks and oral/written reports. Minimum 6 hours/week per 2 credit hours. Prerequisites: BIO 142, BIO 225, consent of instructor.</p>
+                <div class="course-offered">Offered: F/S / As needed</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 442: Cell Physiology</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Study of physiochemical properties of protoplasm and chemical dynamics of life. Three lectures and one laboratory per week. Prerequisites: BIO 141/142 and CHE 243/244.</p>
+                <div class="course-offered">Offered: S / As needed</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 443: Biochemistry</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Key concepts in biochemistry including energy transfer, metabolism, structure-function relationships, and laboratory emphasis on measurement and quantitative analysis. Three lectures and one laboratory per week. Prerequisites: BIO 141/142; CHE 243/244.</p>
+                <div class="course-offered">Offered: S / As needed</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 444: Contemporary Issues in Experimental Biology</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Methods, techniques, and responsible conduct of biological research; data collection, interpretation, and evaluation; topical issues explored at instructor discretion. Prerequisites: BIO 141/142 or equivalent; senior status or consent.</p>
+                <div class="course-offered">Offered: F / As needed</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">
+                    <span>BIO 445: Human Genetics</span>
+                    <span class="course-credits">4 Credits</span>
+                </div>
+                <p class="course-description">Study of human genetic inheritance, gene organization, chromosome structure, karyotyping, prenatal diagnosis, and recombinant DNA technology applications. Prerequisites: BIO 141, BIO 142, and BIO 343 or permission of instructor.</p>
+                <div class="course-offered">Offered: As needed</div>
+            </div>
+        </section>
+
+        <section aria-label="Chemistry courses">
+            <h2>Chemistry</h2>
+            <dl>
+                <dt><strong>CHE 110: Scientific Literacy and Critical Problem Solving</strong> — 1 Credit</dt>
+                <dd>Introduces strategies for navigating scientific problems and encourages critical thinking and problem solving. Co-requisite CHE 141. Offered: F/S (A)</dd>
+
+                <dt><strong>CHE 141: General Chemistry I</strong> — 4 Credits</dt>
+                <dd>Fundamental chemical principles with applications to atomic and molecular theories, periodic trends, and properties of matter. Three lectures and one laboratory per week. Co-requisites: MAT 125/126. Offered: Fall (A)</dd>
+
+                <dt><strong>CHE 142: General Chemistry II</strong> — 4 Credits</dt>
+                <dd>Continuation of CHE 141 covering thermo-chemistry, kinetics, equilibrium, electrochemistry, and introductory organic chemistry. Three lectures and one laboratory per week. Prerequisite: CHE 141. Offered: S (A)</dd>
+
+                <dt><strong>CHE 243 / CHE 244: Organic Chemistry I & II</strong> — 4 Credits</dt>
+                <dd>Systematic study of major classes of organic compounds with emphasis on structure, properties, preparation, and reaction mechanisms. Three lectures and one laboratory per week. Prerequisite: CHE 142. Offered: F/S (A)</dd>
+
+                <dt><strong>CHE 310: Special Topics in Chemistry</strong> — 3 Credits</dt>
+                <dd>Variable topics such as computational chemistry, environmental chemistry, or nano-science. Prerequisite: CHE 142, MAT 136. Offered: F/S (A)</dd>
+
+                <dt><strong>CHE 311: Chemistry Seminar I</strong> — 1 Credit</dt>
+                <dd>Student presentations and laboratory/industry visits. Prerequisite: Junior status and consent. Offered: F/S (A)</dd>
+
+                <dt><strong>CHE 320: Undergraduate Research in Chemistry I</strong> — 2 Credits</dt>
+                <dd>Selected research projects under supervision of chemistry faculty. Prerequisite: Junior status and consent. Offered: F (A) or as needed</dd>
+
+                <dt><strong>CHE 331 / CHE 332: Chemistry Internship / Practicum I & II</strong> — 3 Credits</dt>
+                <dd>Workplace training with individualized learning plans; CHE 332 includes Pharmacy Technician certification review. Prerequisite: CHE 331 for CHE 332. Offered: F / As needed</dd>
+
+                <dt><strong>CHE 343: Pharmaceutical Chemistry</strong> — 4 Credits</dt>
+                <dd>Introduction to drug discovery and development with emphasis on synthesis and analysis of pharmaceutical agents. Prerequisite: CHE 244. Offered: As needed</dd>
+
+                <dt><strong>CHE 345 / CHE 346: Quantitative Analysis I & II</strong> — 4 Credits</dt>
+                <dd>Theories and practices of analytical chemistry with gravimetric, volumetric, electro-analytical and optical methods. Prerequisites: CHE 142 and MAT 133 (for CHE 345); CHE 345 (for CHE 346). Offered: F / S or as needed</dd>
+
+                <dt><strong>CHE 420: Undergraduate Research in Chemistry II</strong> — 2 Credits</dt>
+                <dd>Continuation of CHE 320 research projects. Prerequisite: CHE 320. Offered: As needed</dd>
+
+                <dt><strong>CHE 440: Instrumental Methods of Analysis</strong> — 4 Credits</dt>
+                <dd>Principles and practices of absorption and emission spectroscopy and electro-analytical techniques. Three lectures and one laboratory per week. Prerequisite: CHE 346. Offered: F (E)</dd>
+
+                <dt><strong>CHE 445: Advanced Organic Chemistry</strong> — 4 Credits</dt>
+                <dd>Electronic interpretation of organic reactions, mechanisms, organometallics, and spectrophotometric techniques. Three lectures and one laboratory per week. Prerequisites: CHE 243 and CHE 244. Offered: S (O)</dd>
+
+                <dt><strong>CHE 446: Advanced Inorganic Chemistry</strong> — 4 Credits</dt>
+                <dd>Quantum theory, atomic structure, bonding, coordination compounds, and periodic properties. Three lectures and one laboratory per week. Prerequisites: CHE 345 and MAT 241. Offered: F (O)</dd>
+
+                <dt><strong>CHE 447: Physical Chemistry I</strong> — 4 Credits</dt>
+                <dd>Laws and theories of gases, liquids, solids with introductions to thermodynamics and kinetics. Three lectures and one laboratory per week. Prerequisites: CHE 345, MAT 240. Offered: F (O) or as needed</dd>
+
+                <dt><strong>CHE 448: Physical Chemistry II</strong> — 4 Credits</dt>
+                <dd>Introduction to quantum mechanics, spectroscopy, and computational modeling of atoms. Three lectures and one laboratory per week. Prerequisites: CHE 345, PHY 241, MAT 241. Offered: S (O) or as needed</dd>
+            </dl>
+        </section>
+
+        <section aria-label="Computer Science courses">
+            <h2>Computer Science</h2>
+            <dl>
+                <dt><strong>CSC 110: Personal Computer Systems Repair</strong> — 1 Credit</dt>
+                <dd>Basic technical skills for PC systems, hardware and software troubleshooting, and hands-on experience. Not open to CSC, MAT, or PHY majors. Offered: S (O)</dd>
+
+                <dt><strong>CSC 121: Exploring Robotics</strong> — 3 Credits</dt>
+                <dd>Interdisciplinary introduction to robotics, mathematical foundations for computing, fundamentals of programming, and basics of AI.</dd>
+
+                <dt><strong>CSC 130: Swift Talk</strong> — 3 Credits</dt>
+                <dd>Intro to Swift programming: arrays, loops, algorithms, functions, UI kit overview, Xcode, and CSV-based automation for rapid app development.</dd>
+
+                <dt><strong>CSC 131: Introduction to Computers</strong> — 3 Credits</dt>
+                <dd>Fundamental computer skills covering word processing, spreadsheets, presentations, databases, and internet software. Not open to CSC, MAT, or PHY majors. Offered: F/S (A)</dd>
+
+                <dt><strong>CSC 132: Foundations of Computing</strong> — 3 Credits</dt>
+                <dd>Overview of disciplines within computer science including data representation, hardware, operating systems, programming languages, and databases. Offered: F/S (A)</dd>
+
+                <dt><strong>CSC 133 / CSC 136: Programming I & II</strong> — 3 Credits each</dt>
+                <dd>Problem analysis, algorithm development, program design, coding, testing, and debugging using high-level languages; CSC 136 continues advanced concepts and introduces object-oriented programming. Prerequisites apply. Offered: F/S (A)</dd>
+
+                <dt><strong>CSC 232: Introduction to Data Science</strong> — 3 Credits</dt>
+                <dd>Foundations of data science including visual data observation, data-driven decision making, and programming in Python. Prerequisite: CSC 131 or CSC 132. Offered: F/S (A)</dd>
+
+                <dt><strong>CSC 233: Data Communications and Computer Networks</strong> — 3 Credits</dt>
+                <dd>Principles and techniques of data communications and network protocol layers. Prerequisite: CSC 136. Offered: S (A)</dd>
+
+                <dt><strong>CSC 236: Introduction to Digital Computer Design</strong> — 3 Credits</dt>
+                <dd>Logic design of digital units and computer subsystems. Prerequisite: CSC 132. Offered: F (O)</dd>
+
+                <dt><strong>CSC 237: Computer Systems and Assembly Language</strong> — 3 Credits</dt>
+                <dd>Study of internal computer organization and assembler language programming. Prerequisite: CSC 136. Offered: S (O)</dd>
+
+                <dt><strong>CSC 239: Visual Programming</strong> — 3 Credits</dt>
+                <dd>Object-oriented design and development using languages such as Java, Visual Basic, or Visual C++. Prerequisite: CSC 136. Offered: F (E)</dd>
+
+                <dt><strong>CSC 332: Data Structures and Algorithms</strong> — 3 Credits</dt>
+                <dd>Study of common data structures and algorithmic approaches. Prerequisite: CSC 136. Offered: F/S (A)</dd>
+
+                <dt><strong>CSC 333: Computer Graphics</strong> — 3 Credits</dt>
+                <dd>Introduction to two- and three-dimensional graphics techniques. Prerequisite: CSC 332. Offered: F (O)</dd>
+
+                <dt><strong>CSC 334: Information Systems and Design</strong> — 3 Credits</dt>
+                <dd>File organization, databases, and the information systems development cycle. Prerequisite: CSC 136. Offered: Spring (A)</dd>
+
+                <dt><strong>CSC 336: Software Engineering and Project Management</strong> — 3 Credits</dt>
+                <dd>Overview of software engineering lifecycle, configuration management, assurance, and project management. Prerequisites: CSC 136 and CSC 334. Offered: F (A)</dd>
+
+                <dt><strong>CSC 339: Database Management Systems I</strong> — 3 Credits</dt>
+                <dd>Study of data models, database design, data languages, integrity, and security. Prerequisite: CSC 332. Offered: F (A)</dd>
+
+                <dt><strong>CSC 340: Database Management Systems II</strong> — 3 Credits</dt>
+                <dd>Continuation with focus on SQL programming. Prerequisite: CSC 339.</dd>
+
+                <dt><strong>CSC 420: Digital Forensics</strong> — 3 Credits</dt>
+                <dd>Overview of principles and practices of digital investigation including data acquisition and forensic analysis. Prerequisite: C or better in CSC 332. Offered: S or as needed</dd>
+
+                <dt><strong>CSC 421: Fundamentals of Cybersecurity</strong> — 3 Credits</dt>
+                <dd>Covers cryptography, malware, authentication, access control, trusted systems, and network security. Prerequisite: C or better in CSC 236. Offered: S or as needed</dd>
+
+                <dt><strong>CSC 431: Computer Organization and Architecture</strong> — 3 Credits</dt>
+                <dd>Study of computer organization including processors, control units, and microprogramming. Prerequisites: CSC 136 and CSC 332. Offered: S (A)</dd>
+
+                <dt><strong>CSC 433 / CSC 434: Operating Systems I & II</strong> — 3 Credits</dt>
+                <dd>Functions and implementation of operating systems; CSC 434 emphasizes UNIX systems. Prerequisites apply. Offered: S / As needed</dd>
+
+                <dt><strong>CSC 435: Survey of Programming Languages</strong> — 3 Credits</dt>
+                <dd>Comparative study of programming languages and paradigms. Prerequisites: CSC 136 and CSC 332. Offered: F (O)</dd>
+
+                <dt><strong>CSC 439: Senior Project</strong> — 3 Credits</dt>
+                <dd>Individual study, programming, and presentation of special topics. Prerequisite: Senior status. Offered: S (A)</dd>
+            </dl>
+        </section>
+
+        <section aria-label="Mathematics courses">
+            <h2>Mathematics</h2>
+            <dl>
+                <dt><strong>MAT 110: Math Lab Experience</strong> — 0 Credit</dt>
+                <dd>Co-requisite for MAT 130; for students scoring below required ALEKS threshold. Topics: sets, logic, algebraic concepts, personal finance, basic probability, and problem solving. Offered: F/S</dd>
+
+                <dt><strong>MAT 111: Essential Math Lab</strong> — 0 Credit</dt>
+                <dd>Co-requisite for MAT 133; fundamental arithmetic skills and algebraic topics. Offered: F/S</dd>
+
+                <dt><strong>MAT 130: Contemporary Math</strong> — 3 Credits</dt>
+                <dd>Overview of mathematical topics and applications for non-science degrees. Includes sets, logic, personal finance, probability, statistics intro, and problem solving. Offered: F/S (A)</dd>
+
+                <dt><strong>MAT 133: College Algebra</strong> — 3 Credits</dt>
+                <dd>Foundational algebra skills including exponents, functions, quadratics, and matrices. Prerequisite/co-requisite rules apply. Offered: F/S (A)</dd>
+
+                <dt><strong>MAT 136: College Trigonometry</strong> — 3 Credits</dt>
+                <dd>Trigonometry topics including unit circle, identities, and solving trigonometric equations. Prerequisite: C or better in MAT 133. Offered: F/S</dd>
+
+                <dt><strong>MAT 230: Discrete Mathematics</strong> — 3 Credits</dt>
+                <dd>Logic, sets, relations, Boolean algebra, graph theory, and trees. Prerequisite: C in MAT 133. Offered: S (A)</dd>
+
+                <dt><strong>MAT 233: Probability and Statistics</strong> — 3 Credits</dt>
+                <dd>Basic statistical concepts, probability distributions, sampling, regression, and hypothesis testing. Prerequisite: MAT 133. Offered: F (A)</dd>
+
+                <dt><strong>MAT 240 / MAT 241 / MAT 340</strong> — Calculus I, II, III — 4 Credits each</dt>
+                <dd>Calculus sequence covering limits, differentiation, integration, series, multivariable calculus, and applications. Prerequisite progression applies. Offered: F/S</dd>
+
+                <dt><strong>MAT 242: Linear Algebra</strong> — 3 Credits</dt>
+                <dd>Matrix operations, vector spaces, linear transformations. Prerequisite: C in MAT 136. Offered: Spring (O)</dd>
+
+                <dt><strong>Advanced / Seminar Courses</strong></dt>
+                <dd>Various seminars and advanced courses (MAT 310/410/411, MAT 330, MAT 331, MAT 333, MAT 335, MAT 341, MAT 430, MAT 431) offered to juniors/seniors with prerequisites as listed in the catalog.</dd>
+            </dl>
+        </section>
+
+        <section aria-label="Physics courses">
+            <h2>Physics</h2>
+            <dl>
+                <dt><strong>PHY 131: Physical Science</strong> — 3 Credits</dt>
+                <dd>Survey of physical science topics including principles of physics, chemistry, meteorology, astronomy, and geology. Designed for non-science majors. Three lectures per week. Offered: F/S (A)</dd>
+
+                <dt><strong>PHY 132: Introduction to Astronomy</strong> — 3 Credits</dt>
+                <dd>Survey concepts in astronomy including solar system, stars, galaxies, and cosmology. Three lectures per week. Offered: F (O)</dd>
+
+                <dt><strong>PHY 133: Galileo and the Church</strong> — 3 Credits</dt>
+                <dd>Exploration of historical and scientific issues around Galileo's trials, including lab work on telescopes and parallax. Cross-listed as REL 133. Offered: S (E)</dd>
+
+                <dt><strong>PHY 134: Light, Color, and Vision</strong> — 3 Credits</dt>
+                <dd>Introduction to optics and vision with laboratory demonstrations. Offered: F (E)</dd>
+
+                <dt><strong>PHY 135: Physics of Music</strong> — 3 Credits</dt>
+                <dd>Study of sound generation, perception, and recording with laboratory demonstrations. Offered: S (O)</dd>
+
+                <dt><strong>PHY 241 / PHY 242: Physics I & II</strong> — 4 Credits each</dt>
+                <dd>Classical mechanics, waves, thermodynamics (PHY 241) and electromagnetism, circuits, optics, and modern physics introductions (PHY 242). Three lectures and one laboratory per week. Prerequisites apply. Offered: F/S</dd>
+
+                <dt><strong>PHY 251: Modern Physics</strong> — 4 Credits</dt>
+                <dd>Relativity, quantum theory of light, wave nature of matter, and introduction to quantum mechanics. Prerequisite: PHY 242. Offered: F / As needed</dd>
+
+                <dt><strong>PHY 301: Math Methods of Physics</strong> — 3 Credits</dt>
+                <dd>Applied mathematics techniques for physics and chemistry including linear algebra and ODEs. Prerequisite: MAT 240. Offered: S / As needed</dd>
+
+                <dt><strong>PHY 331: Classical Mechanics</strong> — 3 Credits</dt>
+                <dd>Statics and dynamics, Lagrange/Hamiltonian formalisms, fluids, and vibrations. Prerequisites: PHY 242 and PHY 301. Offered: S / As needed</dd>
+
+                <dt><strong>PHY 333: Electronics</strong> — 4 Credits</dt>
+                <dd>Introduction to electronic devices and circuits with laboratories. Prerequisite: PHY 242. Offered: S / As needed</dd>
+
+                <dt><strong>PHY 335: Thermal Physics</strong> — 3 Credits</dt>
+                <dd>Equation of state, laws of thermodynamics, kinetic theory, and statistical mechanics. Prerequisite: PHY 242. Offered: F / As needed</dd>
+
+                <dt><strong>PHY 345: Electromagnetism</strong> — 3 Credits</dt>
+                <dd>Vector analysis, Maxwell's equations, and wave propagation. Prerequisites: PHY 242 and PHY 301. Offered: F / As needed</dd>
+
+                <dt><strong>PHY 411: Physics Seminar</strong> — 1 Credit</dt>
+                <dd>Research presentations on current topics in physics for juniors and seniors. Prerequisite: PHY 242. Offered: S / As needed</dd>
+
+                <dt><strong>PHY 435: Optics</strong> — 3 Credits</dt>
+                <dd>Modern optics including geometrical and wave optics with applications to spectroscopy and lasers. Prerequisite: PHY 242. Offered: F / As needed</dd>
+
+                <dt><strong>PHY 445: Solid State Physics</strong> — 3 Credits</dt>
+                <dd>Introduction to crystal structures, electron waves in solids, semiconductors, and solid-state properties. Prerequisites: PHY 242 and PHY 301. Offered: S / As needed</dd>
+
+                <dt><strong>PHY 455: Quantum Mechanics</strong> — 3 Credits</dt>
+                <dd>Introduction to quantum mechanics including Schrödinger equation and selected applications. Prerequisites: PHY 331 and PHY 345. Offered: S / As needed</dd>
+            </dl>
+        </section>
+        <p><a href="index.html" class="back-link">Back to Home</a></p>
+    </main>
+</body>
+</html>

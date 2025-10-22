@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty and Staff - Division of Natural and Physical Sciences</title>
+    <style>
+        :root{
+            --bg:#064e3b;
+            --text:#1a202c;
+            --muted:#4a5568;
+            --accent:#2d7a6b;
+            --accent-light:#7dd3c1;
+            --success:#22c55e;
+            --warning:#f59e0b;
+            --max-width:1000px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+        }
+        html,body{
+            height:100%;
+            margin:0;
+            background: var(--bg) url('landscape-10_modified3_sm_181001_210942.jpg') no-repeat center center fixed;
+            background-size:cover;
+            color:var(--text);
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        main{
+            max-width:var(--max-width);
+            margin:2rem auto;
+            padding:2rem;
+            line-height:1.7;
+            background:rgba(255,255,255,0.98);
+            border-radius:var(--border-radius);
+            box-shadow:var(--shadow-lg);
+        }
+        h1{
+            font-size:2.5rem;
+            margin:0 0 2rem;
+            text-align:center;
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            background-clip:text;
+            padding-bottom:1rem;
+            font-weight:800;
+            letter-spacing:-0.5px;
+            position:relative;
+        }
+        h1::after{
+            content:'';
+            position:absolute;
+            bottom:0;
+            left:50%;
+            transform:translateX(-50%);
+            width:80px;
+            height:4px;
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius:2px;
+        }
+        h2{
+            font-size:1.75rem;
+            margin:3rem 0 1.5rem;
+            color:var(--accent);
+            font-weight:700;
+            position:relative;
+            padding-left:2rem;
+        }
+        h2::before{
+            content:'';
+            position:absolute;
+            left:0;
+            top:50%;
+            transform:translateY(-50%);
+            width:6px;
+            height:100%;
+            background:linear-gradient(180deg, var(--accent), var(--accent-light));
+            border-radius:3px;
+        }
+        h3{
+            font-size:1.5rem;
+            margin:2rem 0 1rem;
+            color:var(--muted);
+            font-weight:600;
+            border-bottom:2px solid rgba(125,211,193,0.3);
+            padding-bottom:0.5rem;
+        }
+        h4{
+            font-size:1.3rem;
+            margin:1.5rem 0 1rem;
+            color:var(--accent);
+            font-weight:700;
+            display:flex;
+            align-items:center;
+            gap:0.5rem;
+        }
+        h4::before{
+            content:'🎓';
+            font-size:1.2rem;
+        }
+        
+        /* Page introduction styling */
+        .page-intro {
+            background:linear-gradient(135deg, rgba(125,211,193,0.1), rgba(45,122,107,0.1));
+            padding:2rem;
+            border-radius:var(--border-radius);
+            margin:2rem 0 3rem;
+            border-left:5px solid var(--accent-light);
+            box-shadow:var(--shadow-sm);
+            font-size:1.1rem;
+            line-height:1.8;
+            color:var(--muted);
+        }
+        
+        /* Section styling for better separation */
+        section{
+            background:rgba(255,255,255,0.7);
+            margin:3rem 0;
+            padding:2.5rem;
+            border-radius:var(--border-radius);
+            border:1px solid rgba(125,211,193,0.2);
+            box-shadow:var(--shadow-md);
+            position:relative;
+            transition:all 0.3s ease;
+        }
+        section:hover{
+            box-shadow:var(--shadow-lg);
+            transform:translateY(-2px);
+        }
+        section::before{
+            content:'';
+            position:absolute;
+            top:-2px;
+            left:50%;
+            transform:translateX(-50%);
+            width:60px;
+            height:4px;
+            background:linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius:2px;
+        }
+        
+        /* Article styling for departments */
+        article{
+            background:rgba(125,211,193,0.05);
+            margin:2rem 0;
+            padding:2rem;
+            border-radius:var(--border-radius);
+            border:1px solid rgba(125,211,193,0.2);
+            transition:all 0.3s ease;
+        }
+        article:hover{
+            background:rgba(125,211,193,0.1);
+            transform:translateX(5px);
+        }
+        
+        /* Paragraph spacing */
+        p{
+            margin:1.2rem 0;
+            font-weight:400;
+            line-height:1.8;
+            color:var(--text);
+        }
+        
+        /* List styling */
+        ul{
+            margin:1.5rem 0;
+            padding-left:0;
+            list-style:none;
+        }
+        ul li{
+            margin:0.8rem 0;
+            padding:1rem 1.5rem;
+            background:rgba(255,255,255,0.8);
+            border-left:4px solid var(--accent-light);
+            border-radius:8px;
+            line-height:1.6;
+            font-weight:500;
+            color:var(--text);
+            position:relative;
+            transition:all 0.3s ease;
+        }
+        ul li:hover{
+            background:rgba(255,255,255,0.95);
+            transform:translateX(5px);
+            box-shadow:var(--shadow-sm);
+        }
+        ul li::before{
+            content:'👨‍🏫';
+            position:absolute;
+            left:-12px;
+            top:50%;
+            transform:translateY(-50%);
+            background:var(--accent);
+            color:white;
+            width:24px;
+            height:24px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:0.8rem;
+        }
+        
+        /* Email link styling */
+        a[href^="mailto"]{
+            color:var(--accent);
+            font-weight:600;
+            text-decoration:none;
+            padding:0.2rem 0.5rem;
+            background:rgba(125,211,193,0.1);
+            border-radius:4px;
+            transition:all 0.3s ease;
+        }
+        a[href^="mailto"]:hover{
+            background:rgba(125,211,193,0.2);
+            text-decoration:none;
+        }
+        
+        /* Back link styling */
+        .back-link{
+            display:inline-flex;
+            align-items:center;
+            gap:0.5rem;
+            margin-top:3rem;
+            padding:1rem 2rem;
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            color:white;
+            text-decoration:none;
+            border-radius:50px;
+            font-weight:600;
+            transition:all 0.3s ease;
+            box-shadow:var(--shadow-md);
+        }
+        .back-link:hover{
+            transform:translateY(-3px);
+            box-shadow:var(--shadow-lg);
+        }
+        .back-link::before{
+            content:'←';
+            font-size:1.2rem;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            main{
+                margin:1rem;
+                padding:1.5rem;
+            }
+            h1{
+                font-size:2rem;
+            }
+            h2{
+                font-size:1.5rem;
+                padding-left:1.5rem;
+            }
+            section{
+                padding:1.5rem;
+            }
+            article{
+                padding:1.5rem;
+            }
+            ul li{
+                padding:0.8rem 1rem;
+            }
+        }
+        
+        a{color:var(--accent);text-decoration:none;font-weight:500}
+        a:hover{text-decoration:underline;color:var(--accent-light)}
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Faculty and Staff</h1>
+        <div class="page-intro">
+            <p>Meet the dedicated faculty and staff of the Division of Natural and Physical Sciences. Our experienced educators and researchers are committed to providing exceptional academic experiences and mentoring students toward successful careers in science, technology, and related fields.</p>
+        </div>
+
+        <section aria-labelledby="who-we-are">
+            <h2 id="who-we-are">WHO WE ARE</h2>
+
+            <h3>Our Departments</h3>
+
+            <article>
+                <h4>Biology</h4>
+                <ul>
+                    <li>Dr. Ashraf Ahmad, Assistant Professor - email: <a href="mailto:aahmad@lanecollege.edu">aahmad@lanecollege.edu</a></li>
+                    <li>Dr. Candace Jones Carter, Associate Professor - email: <a href="mailto:cajones@lanecollege.edu">cajones@lanecollege.edu</a></li>
+                    <li>Dr. Consuella Davis, Assistant Professor - email: <a href="mailto:cdavis@lanecollege.edu">cdavis@lanecollege.edu</a></li>
+                    <li>Dr. Diane Sklensky, Associate Professor, Department Chair - email: <a href="mailto:dsklensky@lanecollege.edu">dsklensky@lanecollege.edu</a></li>
+                    <li>Dr. Melanie Van Stry, Professor - email: <a href="mailto:mvanstry@lanecollege.edu">mvanstry@lanecollege.edu</a></li>
+                    <li>Mr. Carlos Williams, Laboratory Coordinator - email: <a href="mailto:cwilliams@lanecollege.edu">cwilliams@lanecollege.edu</a></li>
+                </ul>
+                <p><strong>Resources</strong></p>
+                <p><a id="link-biology-page" href="page3.html" title="Biology - Division of Natural and Physical Sciences" aria-label="Go to Biology page">Biology</a></p>
+            </article>
+
+            <article>
+                <h4>Chemistry</h4>
+                <ul>
+                    <li>Mr. Farag Gaber, Assistant Professor - email: <a href="mailto:fgaber@lanecollege.edu">fgaber@lanecollege.edu</a></li>
+                    <li>Dr. Aminah Gooch, Associate Professor - email: <a href="mailto:agooch@lanecollege.edu">agooch@lanecollege.edu</a></li>
+                    <li>Dr. Mba Ude, Associate Professor, Department Chair - email: <a href="mailto:mude@lanecollege.edu">mude@lanecollege.edu</a></li>
+                </ul>
+                <p><strong>Resources</strong></p>
+            </article>
+
+            <article>
+                <h4>Computer Science</h4>
+                <ul>
+                    <li>Professor Bill Cox, Adjunct Instructor - email: <a href="mailto:wcox@lanecollege.edu">wcox@lanecollege.edu</a></li>
+                    <li>Dr. Kitai Jeong, Associate Professor - email: <a href="mailto:kjeong@lanecollege.edu">kjeong@lanecollege.edu</a></li>
+                    <li>Dr. Sheldon Liang, Associate Professor, Department Chair - email: <a href="mailto:sliang@lanecollege.edu">sliang@lanecollege.edu</a></li>
+                    <li>Dr. Kent Tyler, Assistant Professor - email: <a href="mailto:ktyler@lanecollege.edu">ktyler@lanecollege.edu</a></li>
+                </ul>
+                <p><strong>Resources</strong></p>
+            </article>
+
+            <article>
+                <h4>Mathematics</h4>
+                <ul>
+                    <li>Dr. Ang Li, Assistant Professor - email: <a href="mailto:ali@lanecollege.edu">ali@lanecollege.edu</a></li>
+                    <li>Dr. Kelvin Douglas - Math Lab Coordinator - email: <a href="mailto:kdouglas@lanecollege.edu">kdouglas@lanecollege.edu</a></li>
+                    <li>Dr. J. Todd Pogge, Assistant Professor - email: <a href="mailto:jpogge@lanecollege.edu">jpogge@lanecollege.edu</a></li>
+                    <li>Dr. Junhua Wu, Associate Professor, Department Chair - email: <a href="mailto:jwu@lanecollege.edu">jwu@lanecollege.edu</a></li>
+                </ul>
+                <p><strong>Resources</strong></p>
+            </article>
+
+            <article>
+                <h4>Physics</h4>
+                <ul>
+                    <li>Dr. Nathan Das, Assistant Professor - email: <a href="mailto:ndas@lanecollege.edu">ndas@lanecollege.edu</a></li>
+                    <li>Dr. Nicholas Wolff - email: <a href="mailto:nwolff@lanecollege.edu">nwolff@lanecollege.edu</a></li>
+                </ul>
+            </article>
+
+        </section>
+
+        <p><a href="index.html" class="back-link">Back to Home</a></p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Division of Natural and Physical Sciences</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+			<style>
+			    :root {
+			        /* Enhanced Color Palette */
+			        --bg: #064e3b;
+			        --text: #f0fff4;
+			        --muted: #9ae6b4;
+			        --accent: #2d7a6b;
+			        --accent-light: #7dd3c1;
+			        --max-width: 900px;
+			        
+			        /* Enhanced Design System */
+			        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+			        --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+			        --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+			        --border-radius: 12px;
+			        --border-radius-sm: 8px;
+			        --border-radius-lg: 16px;
+			        --spacing-xs: 0.5rem;
+			        --spacing-sm: 1rem;
+			        --spacing-md: 1.5rem;
+			        --spacing-lg: 2rem;
+			        --spacing-xl: 3rem;
+			        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			    }
+			    
+			    html, body {
+			        height: 100%;
+			        margin: 0;
+			        padding: 0;
+			        background: var(--bg) url('download.webp') no-repeat center center fixed;
+			        background-size: cover;
+			        color: var(--text);
+			        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+			        line-height: 1.6;
+			        -webkit-font-smoothing: antialiased;
+			        -moz-osx-font-smoothing: grayscale;
+			    }
+			    
+			    main {
+			        max-width: var(--max-width);
+			        margin: var(--spacing-lg) auto;
+			        padding: var(--spacing-xl) var(--spacing-lg);
+			        background: rgba(15, 23, 42, 0.85);
+			        border-radius: var(--border-radius-lg);
+			        box-shadow: var(--shadow-lg);
+			        border: 1px solid rgba(255, 255, 255, 0.1);
+			        position: relative;
+			        overflow: hidden;
+			    }
+			    
+			    main::before {
+			        content: '';
+			        position: absolute;
+			        top: 0;
+			        left: 0;
+			        right: 0;
+			        height: 1px;
+			        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+			    }
+			    
+			    h1 {
+			        font-size: 2.5rem;
+			        font-weight: 800;
+			        margin: 0 0 var(--spacing-lg);
+			        text-align: center;
+			        background: linear-gradient(135deg, var(--text), var(--accent-light));
+			        -webkit-background-clip: text;
+			        -webkit-text-fill-color: transparent;
+			        background-clip: text;
+			        text-shadow: none;
+			        line-height: 1.2;
+			        letter-spacing: -0.025em;
+			    }
+			    
+			    p {
+			        font-size: 1.1rem;
+			        line-height: 1.7;
+			        margin: var(--spacing-md) 0;
+			        color: rgba(240, 255, 244, 0.9);
+			        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+			        font-weight: 400;
+			    }
+			    
+			    a {
+			        color: var(--accent-light);
+			        text-decoration: none;
+			        transition: var(--transition);
+			    }
+			    
+			    a:hover {
+			        color: var(--text);
+			        text-decoration: underline;
+			    }
+			    
+			    /* Enhanced Navigation Styles */
+			    .navbar {
+			        background: linear-gradient(135deg, rgba(220, 38, 38, 0.9), rgba(239, 68, 68, 0.8));
+			        padding: var(--spacing-md) 0;
+			        margin-top: var(--spacing-xl);
+			        border-radius: var(--border-radius-lg);
+			        box-shadow: var(--shadow-lg);
+			        border: 1px solid rgba(255, 255, 255, 0.15);
+			        position: relative;
+			        overflow: hidden;
+			    }
+			    
+			    .navbar::before {
+			        content: '';
+			        position: absolute;
+			        top: 0;
+			        left: 0;
+			        right: 0;
+			        height: 1px;
+			        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+			    }
+			    
+			    .navbar .nav-container {
+			        max-width: var(--max-width);
+			        margin: 0 auto;
+			        padding: 0 var(--spacing-lg);
+			    }
+			    
+			    .navbar ul {
+			        list-style: none;
+			        margin: 0;
+			        padding: 0;
+			        display: grid;
+			        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+			        gap: var(--spacing-sm);
+			    }
+			    
+			    .navbar a {
+			        color: #fff;
+			        text-decoration: none;
+			        padding: var(--spacing-sm) var(--spacing-md);
+			        border-radius: var(--border-radius);
+			        transition: var(--transition);
+			        font-size: 0.95rem;
+			        font-weight: 600;
+			        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+			        background: rgba(255, 255, 255, 0.1);
+			        border: 1px solid rgba(255, 255, 255, 0.15);
+			        display: flex;
+			        align-items: center;
+			        gap: var(--spacing-xs);
+			        justify-content: center;
+			        text-align: center;
+			    }
+			    
+			    .navbar a:hover {
+			        background: rgba(255, 255, 255, 0.25);
+			        transform: translateY(-2px);
+			        box-shadow: var(--shadow-md);
+			        text-decoration: none;
+			        border-color: rgba(255, 255, 255, 0.3);
+			    }
+			    
+			    .navbar a i {
+			        font-size: 1rem;
+			        opacity: 0.9;
+			    }
+			    
+			    /* Responsive Design */
+			    @media (max-width: 768px) {
+			        main {
+			            margin: var(--spacing-md) var(--spacing-sm);
+			            padding: var(--spacing-lg) var(--spacing-md);
+			        }
+			        
+			        h1 {
+			            font-size: 2rem;
+			        }
+			        
+			        .navbar ul {
+			            grid-template-columns: 1fr;
+			            gap: var(--spacing-xs);
+			        }
+			        
+			        .navbar .nav-container {
+			            padding: 0 var(--spacing-md);
+			        }
+			    }
+			    
+			    @media (max-width: 480px) {
+			        main {
+			            margin: var(--spacing-sm);
+			            padding: var(--spacing-md);
+			        }
+			        
+			        h1 {
+			            font-size: 1.75rem;
+			        }
+			        
+			        p {
+			            font-size: 1rem;
+			        }
+			        
+			        .navbar a {
+			            padding: var(--spacing-sm);
+			            font-size: 0.9rem;
+			        }
+			    }
+			</style>
+</head>
+	<body>
+	<main>
+		<h1>Welcome to The Division of Natural and Physical Sciences</h1>
+		<p>
+			The Division of Natural and Physical Sciences is committed to promoting scientific inquiry, synthesizing the process, content, and interdisciplinary nature of these disciplines. The Division is also committed to providing students with the necessary courses for meeting the requirements of the General Studies Curriculum in the sciences.
+		</p>
+		<p>
+			The goal of the Division of Natural and Physical Sciences is to provide students with opportunities to develop their maximum intellectual potential through a variety of curricular and extracurricular offerings.
+		</p>
+	</main>
+	
+	<nav class="navbar">
+		<div class="nav-container">
+			<ul>
+				<li><a id="link-faculty-staff" href="page2.html" title="Faculty and Staff - Division of Natural and Physical Sciences" aria-label="Faculty and Staff page">Faculty and Staff</a></li>
+				<li><a id="link-biology" href="page3.html" title="Biology - Division of Natural and Physical Sciences" aria-label="Biology page"><i class="fa-solid fa-dna"></i> Biology</a></li>
+				<li><a id="link-chemistry" href="page4.html" title="Chemistry - Division of Natural and Physical Sciences" aria-label="Chemistry page"><i class="fa-solid fa-flask-vial"></i> Chemistry</a></li>
+				<li><a id="link-compsci" href="page5.html" title="Computer Science - Division of Natural and Physical Sciences" aria-label="Computer Science page"><i class="fa-solid fa-computer"></i> Computer Science</a></li>
+				<li><a id="link-mathematics" href="page6.html" title="Mathematics - Division of Natural and Physical Sciences" aria-label="Mathematics page"><i class="fa-solid fa-calculator"></i> Mathematics</a></li>
+				<li><a id="link-physics" href="page7.html" title="Physics - Division of Natural and Physical Sciences" aria-label="Physics page">Physics</a></li>
+				<li><a id="link-pre-nursing" href="page8.html" title="Pre-Nursing - Division of Natural and Physical Sciences" aria-label="Pre-Nursing page"><i class="fa-solid fa-user-nurse"></i> Pre-Nursing</a></li>
+				<li><a id="link-academic-support" href="page9.html" title="Academic Support for Students - Division of Natural and Physical Sciences" aria-label="Academic Support for Students page">Academic Support</a></li>
+				<li><a id="link-course-offerings" href="page10.html" title="Course Offerings - Division of Natural and Physical Sciences" aria-label="Course Offerings page">Course Offerings</a></li>
+				<li><a id="link-bioinformatics-certificate" href="page11.html" title="Bioinformatics Certificate - Division of Natural and Physical Sciences" aria-label="Bioinformatics Certificate page">Bioinformatics</a></li>
+				<li><a id="link-pharmacy-technician-certification" href="page12.html" title="Pharmacy Technician Certification - Division of Natural and Physical Sciences" aria-label="Pharmacy Technician Certification page">Pharmacy Tech</a></li>
+				<li><a id="link-internships" href="page13.html" title="Internships - Division of Natural and Physical Sciences" aria-label="Internships page">Internships</a></li>
+				<li><a id="link-academic-support-14" href="page14.html" title="News - Division of Natural and Physical Sciences" aria-label="News page">News</a></li>
+				<li><a id="link-career-programs" href="page15.html" title="Career Programs - Division of Natural and Physical Sciences" aria-label="Career Programs">Career Programs</a></li>
+			</ul>
+		</div>
+	</nav>
+
+</body>
+</html>
+<link rel="stylesheet" href="styles.css">

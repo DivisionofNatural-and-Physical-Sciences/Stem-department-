@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Support for Students - Division of Natural and Physical Sciences</title>
+    <style>
+        :root{
+            --bg:#064e3b;
+            --text:#1a202c;
+            --muted:#4a5568;
+            --accent:#2d7a6b;
+            --accent-light:#7dd3c1;
+            --success:#22c55e;
+            --warning:#f59e0b;
+            --max-width:1000px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+        }
+        html,body{
+            height:100%;
+            margin:0;
+            background: var(--bg) url('dragons.webp') no-repeat center center fixed;
+            background-size:cover;
+            color:var(--text);
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        main{
+            max-width:var(--max-width);
+            margin:2rem auto;
+            padding:2rem;
+            line-height:1.7;
+            background:rgba(255,255,255,0.98);
+            border-radius:var(--border-radius);
+            box-shadow:var(--shadow-lg);
+        }
+        h1{
+            font-size:2.5rem;
+            margin:0 0 2rem;
+            text-align:center;
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            background-clip:text;
+            padding-bottom:1rem;
+            font-weight:800;
+            letter-spacing:-0.5px;
+            position:relative;
+        }
+        h1::after{
+            content:'';
+            position:absolute;
+            bottom:0;
+            left:50%;
+            transform:translateX(-50%);
+            width:80px;
+            height:4px;
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius:2px;
+        }
+        h2{
+            font-size:1.75rem;
+            margin:3rem 0 1.5rem;
+            color:var(--accent);
+            font-weight:700;
+            position:relative;
+            padding-left:2rem;
+        }
+        h2::before{
+            content:'';
+            position:absolute;
+            left:0;
+            top:50%;
+            transform:translateY(-50%);
+            width:6px;
+            height:100%;
+            background:linear-gradient(180deg, var(--accent), var(--accent-light));
+            border-radius:3px;
+        }
+        h3{
+            font-size:1.3rem;
+            margin:2rem 0 1rem;
+            color:var(--muted);
+            font-weight:600;
+            border-bottom:2px solid rgba(125,211,193,0.3);
+            padding-bottom:0.5rem;
+        }
+        
+        .page-intro {
+            background:linear-gradient(135deg, rgba(125,211,193,0.1), rgba(45,122,107,0.1));
+            padding:2rem;
+            border-radius:var(--border-radius);
+            margin:2rem 0 3rem;
+            border-left:5px solid var(--accent-light);
+            box-shadow:var(--shadow-sm);
+            font-size:1.1rem;
+            line-height:1.8;
+            color:var(--muted);
+        }
+        
+        section{
+            background:rgba(255,255,255,0.7);
+            margin:3rem 0;
+            padding:2.5rem;
+            border-radius:var(--border-radius);
+            border:1px solid rgba(125,211,193,0.2);
+            box-shadow:var(--shadow-md);
+            position:relative;
+            transition:all 0.3s ease;
+        }
+        section:hover{
+            box-shadow:var(--shadow-lg);
+            transform:translateY(-2px);
+        }
+        section::before{
+            content:'';
+            position:absolute;
+            top:-2px;
+            left:50%;
+            transform:translateX(-50%);
+            width:60px;
+            height:4px;
+            background:linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius:2px;
+        }
+        
+        p{
+            margin:1.2rem 0;
+            font-weight:400;
+            line-height:1.8;
+            color:var(--text);
+        }
+        
+        ul{
+            margin:1.5rem 0;
+            padding-left:0;
+            list-style:none;
+        }
+        ul li{
+            margin:1rem 0;
+            padding:1rem 1.5rem;
+            background:rgba(125,211,193,0.08);
+            border-left:4px solid var(--accent-light);
+            border-radius:8px;
+            line-height:1.6;
+            font-weight:500;
+            color:var(--text);
+            position:relative;
+            transition:all 0.3s ease;
+        }
+        ul li:hover{
+            background:rgba(125,211,193,0.15);
+            transform:translateX(5px);
+        }
+        ul li::before{
+            content:'📚';
+            position:absolute;
+            left:-12px;
+            top:50%;
+            transform:translateY(-50%);
+            background:var(--accent);
+            color:white;
+            width:24px;
+            height:24px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:0.8rem;
+        }
+        
+        .back-link{
+            display:inline-flex;
+            align-items:center;
+            gap:0.5rem;
+            margin-top:3rem;
+            padding:1rem 2rem;
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            color:white;
+            text-decoration:none;
+            border-radius:50px;
+            font-weight:600;
+            transition:all 0.3s ease;
+            box-shadow:var(--shadow-md);
+        }
+        .back-link:hover{
+            transform:translateY(-3px);
+            box-shadow:var(--shadow-lg);
+        }
+        .back-link::before{
+            content:'←';
+            font-size:1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            main{
+                margin:1rem;
+                padding:1.5rem;
+            }
+            h1{
+                font-size:2rem;
+            }
+            h2{
+                font-size:1.5rem;
+                padding-left:1.5rem;
+            }
+            section{
+                padding:1.5rem;
+            }
+        }
+        
+        a{color:var(--accent);text-decoration:none;font-weight:500}
+        a:hover{text-decoration:underline;color:var(--accent-light)}
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Academic Support for Students</h1>
+        <div class="page-intro">
+            <p>Enhance your academic success with our comprehensive support services. From supplemental instruction to tutoring centers, we provide the resources and guidance you need to excel in your science and mathematics coursework.</p>
+        </div>
+        <section>
+            <h2>Supplemental Instruction</h2>
+            <p>Supplemental Instruction to improve academic success is available for College Algebra. Contact Dr. Douglas or Dr. Van Stry for more information.</p>
+        </section>
+
+        <section>
+            <h2>STEM Center</h2>
+            <p>Computer Lab with iMacs. Faculty and tutors are available for assistance with all science and math course work.</p>
+
+            <h3>STEM Center Weekly Schedule</h3>
+            <table border="1" cellpadding="6" cellspacing="0">
+                <thead>
+                    <tr><th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>10:00 AM</td><td>Carter</td><td>Li</td><td>Kessey</td><td>Li</td></tr>
+                    <tr><td>10:30 AM</td><td>Carter</td><td>Li</td><td>Kessey</td><td>Li</td></tr>
+                    <tr><td>11:00 AM</td><td>STEM Center Closed</td><td></td><td>STEM Center Closed for Chapel</td><td></td></tr>
+                    <tr><td>11:30 AM</td><td>STEM Center Closed</td><td></td><td>STEM Center Closed for Chapel</td><td>Wolff</td></tr>
+                    <tr><td>12:00 PM</td><td>Liang</td><td>Das</td><td>Liang</td><td>Wolff</td></tr>
+                    <tr><td>12:30 PM</td><td>Liang</td><td>Das</td><td>Liang</td><td>Wolff</td></tr>
+                    <tr><td>1:00 PM</td><td>Wu</td><td>Das</td><td>Wu</td><td>Wolff</td></tr>
+                    <tr><td>1:30 PM</td><td>Wu</td><td>Das</td><td>Wu</td><td>Carter</td></tr>
+                    <tr><td>2:00 PM</td><td>Sklensky</td><td>Van Stry; Jeong</td><td>Davis</td><td>Ude</td></tr>
+                    <tr><td>2:30 PM</td><td>Sklensky</td><td>Van Stry; Jeong</td><td>Davis</td><td>Ude</td></tr>
+                    <tr><td>3:00 PM</td><td>Sklensky</td><td>Van Stry; Jeong</td><td>Davis</td><td>Ahmad, Ude</td></tr>
+                    <tr><td>3:30 PM</td><td>Sklensky</td><td>Jeong</td><td>Davis</td><td>Ahmad</td></tr>
+                    <tr><td>4:00 PM</td><td></td><td>Jeong</td><td></td><td>Ahmad</td></tr>
+                    <tr><td>4:30 PM</td><td></td><td>Jeong</td><td></td><td>Ahmad</td></tr>
+                    <tr><td>5:00 PM</td><td></td><td></td><td>Gaber</td><td></td></tr>
+                    <tr><td>5:30 PM</td><td>Tyler, Pogge</td><td></td><td>Gaber</td><td></td></tr>
+                    <tr><td>6:00 PM</td><td>Tyler, Pogge</td><td></td><td>Gaber</td><td></td></tr>
+                    <tr><td>6:30 PM</td><td>Tyler, Pogge</td><td></td><td>Gaber</td><td></td></tr>
+                    <tr><td>7:00 PM</td><td>Tyler, Pogge</td><td></td><td>Gaber</td><td></td></tr>
+                    <tr><td>7:30 PM</td><td>Pogge</td><td></td><td>Gaber</td><td></td></tr>
+                </tbody>
+            </table>
+
+            <p>Help us to track STEM Center usage: <a href="#">STEM Center Attendance Log for Students</a></p>
+        </section>
+
+        <section>
+            <h2>HBCU C2 Innovation Community Center</h2>
+            <p>Lane College is partnering with Tennessee State University and Apple Inc. as the Jackson-Madison County HBCU C2 Community Innovation Center. We have 3 mobile computer labs to offer the following programs:</p>
+            <ul>
+                <li>STEAM summer camp for K-5 children</li>
+                <li>Apple Certification courses in Swift Programming (Swift Talk)</li>
+                <li>Everyone Can Create courses in collaboration with the Art Department (Art Special Topics)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Course-based Undergraduate Research</h2>
+            <p>Students engage in real-world research projects in laboratory courses.</p>
+            <ul>
+                <li>Biology: genomics, bioinformatics, biodiversity</li>
+                <li>Chemistry: food chemistry, formulation chemistry, computational chemistry, physical chemistry</li>
+                <li>Computer Science: web design, digital archiving, artificial intelligence, data science. Students enrolled in <strong>CSC 232 Introduction to Data Science</strong> may be eligible for a 2-week summer research experience with a stipend and a certificate in Data Science by taking a course at one of our partner institutions. Contact Dr. Liang (<a href="mailto:sliang@lanecollege.edu">sliang@lanecollege.edu</a>) for more information.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Summer Undergraduate Research Experiences</h2>
+            <ul>
+                <li>8-week program for Lane students to participate in mentored research in Biology, Chemistry, Computer Science, Mathematics, and Physics. Includes housing, meal plan, and stipends.</li>
+                <li>10-week program for Lane students to participate in mentored research at Oak Ridge National Laboratory. Includes housing and stipends.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Professional Development</h2>
+            <p>Lane College Science students participate in weekly career seminars, including information about graduate and professional school, connections with alumni working in STEM fields, assistance with internship and graduate school applications, GRE preparation, etc. Student affiliations and memberships include:</p>
+            <ul>
+                <li>American Society for Biochemistry and Molecular Biology Student Chapters</li>
+                <li>American Chemical Society (Kentucky Lake Region)</li>
+                <li>American Society for Cell Biology</li>
+                <li>American Physical Society</li>
+                <li>National Organization for the Professional Development of Black Chemists and Chemical Engineers</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Science Consortium of Minority Schools</h2>
+            <p>Lane College received a sub-award from Meharry Medical College Minority Science Education Improvement Project to establish partnerships with HBCUs, including Fisk University, LeMoyne-Owen College, Paine College, and Tennessee State University. This consortium provides professional development for students with an annual conference and a pathway for Lane students to pursue engineering degrees at Tennessee State University. <a href="https://e-scms.org/">https://e-scms.org/</a></p>
+        </section>
+
+        <section>
+            <h2>Partnerships</h2>
+            <p>Nursing: Lane College is partnering with University of Tennessee Health Science Center to provide a pathway to the BSN and bridge to the doctorate: <a href="https://www.uthsc.edu/nursing/partnership-enrollment-programs.php">UTHSC Nursing Partnership Enrollment Programs</a></p>
+            <p>Pharmacy: Lane College is partnering with Union University to provide a pathway to Doctor of Pharmacy. Lane College students complete prerequisite courses as part of their degree requirements in Biology or Chemistry and are then eligible for admission to the PharmD program at Union University.</p>
+            <p>CVS Workforce Innovation Talent Center: This state-of-the-art mock pharmacy/CVS store provides a hands-on learning environment for students interested in our Pharmacy Technician Certification program.</p>
+        </section>
+
+        <section>
+            <h2>Community Outreach</h2>
+            <p>Lane College students engage children in local K-8 schools in science demonstrations.</p>
+        </section>
+
+        <section>
+            <h2>Grants & Support</h2>
+            <p>The Division of Natural and Physical Sciences is supported by the following grants and awards: NSF DUE 1833960, NSF DUE 2142514, NSF EES 2011938, DOE, Subawards from Meharry Medical College CDC grant, and Tennessee State University DOE MSIPP grant.</p>
+        </section>
+
+        <p><a href="index.html" class="back-link">Back to Home</a></p>
+    </main>
+</body>
+</html>

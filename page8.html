@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Nursing - Division of Natural and Physical Sciences</title>
+    <style>
+        :root{
+            --bg:#064e3b;
+            --text:#1a202c;
+            --muted:#4a5568;
+            --accent:#2d7a6b;
+            --accent-light:#7dd3c1;
+            --success:#22c55e;
+            --warning:#f59e0b;
+            --max-width:1000px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+        }
+        html,body{
+            height:100%;
+            margin:0;
+            background: var(--bg) url('download (3).webp') no-repeat center center fixed;
+            background-size:cover;
+            color:var(--text);
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        main{
+            max-width:var(--max-width);
+            margin:2rem auto;
+            padding:2rem;
+            line-height:1.7;
+            background:rgba(255,255,255,0.98);
+            border-radius:var(--border-radius);
+            box-shadow:var(--shadow-lg);
+        }
+        h1{
+            font-size:2.5rem;
+            margin:0 0 2rem;
+            text-align:center;
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            background-clip:text;
+            padding-bottom:1rem;
+            font-weight:800;
+            letter-spacing:-0.5px;
+            position:relative;
+        }
+        h1::after{
+            content:'';
+            position:absolute;
+            bottom:0;
+            left:50%;
+            transform:translateX(-50%);
+            width:80px;
+            height:4px;
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius:2px;
+        }
+        h2{
+            font-size:1.75rem;
+            margin:3rem 0 1.5rem;
+            color:var(--accent);
+            font-weight:700;
+            position:relative;
+            padding-left:2rem;
+        }
+        h2::before{
+            content:'';
+            position:absolute;
+            left:0;
+            top:50%;
+            transform:translateY(-50%);
+            width:6px;
+            height:100%;
+            background:linear-gradient(180deg, var(--accent), var(--accent-light));
+            border-radius:3px;
+        }
+        h3{
+            font-size:1.3rem;
+            margin:2rem 0 1rem;
+            color:var(--muted);
+            font-weight:600;
+            border-bottom:2px solid rgba(125,211,193,0.3);
+            padding-bottom:0.5rem;
+        }
+        
+        .page-intro {
+            background:linear-gradient(135deg, rgba(125,211,193,0.1), rgba(45,122,107,0.1));
+            padding:2rem;
+            border-radius:var(--border-radius);
+            margin:2rem 0 3rem;
+            border-left:5px solid var(--accent-light);
+            box-shadow:var(--shadow-sm);
+            font-size:1.1rem;
+            line-height:1.8;
+            color:var(--muted);
+        }
+        
+        section{
+            background:rgba(255,255,255,0.7);
+            margin:3rem 0;
+            padding:2.5rem;
+            border-radius:var(--border-radius);
+            border:1px solid rgba(125,211,193,0.2);
+            box-shadow:var(--shadow-md);
+            position:relative;
+            transition:all 0.3s ease;
+        }
+        section:hover{
+            box-shadow:var(--shadow-lg);
+            transform:translateY(-2px);
+        }
+        section::before{
+            content:'';
+            position:absolute;
+            top:-2px;
+            left:50%;
+            transform:translateX(-50%);
+            width:60px;
+            height:4px;
+            background:linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius:2px;
+        }
+        
+        p{
+            margin:1.2rem 0;
+            font-weight:400;
+            line-height:1.8;
+            color:var(--text);
+        }
+        
+        ul{
+            margin:1.5rem 0;
+            padding-left:0;
+            list-style:none;
+        }
+        ul li{
+            margin:1rem 0;
+            padding:1rem 1.5rem;
+            background:rgba(125,211,193,0.08);
+            border-left:4px solid var(--accent-light);
+            border-radius:8px;
+            line-height:1.6;
+            font-weight:500;
+            color:var(--text);
+            position:relative;
+            transition:all 0.3s ease;
+        }
+        ul li:hover{
+            background:rgba(125,211,193,0.15);
+            transform:translateX(5px);
+        }
+        ul li::before{
+            content:'✓';
+            position:absolute;
+            left:-12px;
+            top:50%;
+            transform:translateY(-50%);
+            background:var(--success);
+            color:white;
+            width:24px;
+            height:24px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:0.8rem;
+            font-weight:700;
+        }
+        
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin:2rem 0;
+            background:rgba(255,255,255,0.95);
+            border-radius:var(--border-radius);
+            overflow:hidden;
+            box-shadow:var(--shadow-md);
+        }
+        table th{
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            color:white;
+            padding:1rem;
+            text-align:left;
+            font-weight:700;
+            font-size:0.95rem;
+            letter-spacing:0.5px;
+        }
+        table td{
+            padding:1rem;
+            text-align:left;
+            font-weight:500;
+            color:var(--text);
+            border-bottom:1px solid rgba(125,211,193,0.2);
+            transition:background-color 0.3s ease;
+        }
+        table tr:nth-child(even){
+            background:rgba(125,211,193,0.05);
+        }
+        table tr:hover{
+            background:rgba(125,211,193,0.15);
+        }
+        
+        .back-link{
+            display:inline-flex;
+            align-items:center;
+            gap:0.5rem;
+            margin-top:3rem;
+            padding:1rem 2rem;
+            background:linear-gradient(135deg, var(--accent), var(--accent-light));
+            color:white;
+            text-decoration:none;
+            border-radius:50px;
+            font-weight:600;
+            transition:all 0.3s ease;
+            box-shadow:var(--shadow-md);
+        }
+        .back-link:hover{
+            transform:translateY(-3px);
+            box-shadow:var(--shadow-lg);
+        }
+        .back-link::before{
+            content:'←';
+            font-size:1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            main{
+                margin:1rem;
+                padding:1.5rem;
+            }
+            h1{
+                font-size:2rem;
+            }
+            h2{
+                font-size:1.5rem;
+                padding-left:1.5rem;
+            }
+            section{
+                padding:1.5rem;
+            }
+        }
+        
+        a{color:var(--accent);text-decoration:none;font-weight:500}
+        a:hover{text-decoration:underline;color:var(--accent-light)}
+    </style>
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Pre-Nursing</h1>
+        <div class="page-intro">
+            <p>Prepare for a rewarding career in healthcare through our Pre-Nursing program and Partnership Enrollment Program (PEP) with the University of Tennessee Health Science Center (UTHSC). Our program provides a direct pathway to nursing education and advanced healthcare degrees.</p>
+        </div>
+        <section>
+            <h2>Lane College - UTHSC College of Nursing Partnership Enrollment Program (PEP)</h2>
+            <p>This Partnership Enrollment Program offers full admission into the accelerated BSN or traditional BSN at UTHSC to any Lane students who fulfill the requirements of the PEP. Additionally, Lane students can be elected to participate in the bridge programs of DNP, PhD, or Dual DNP/PhD if the requirements are also met.</p>
+        </section>
+
+        <section>
+            <h3>Requirements for Intent Enrollment at UTHSC</h3>
+            <ul>
+                <li>Current enrollment at Lane College</li>
+                <li>Good academic standing</li>
+                <li>Compliance with the Lane code of conduct during time of enrollment</li>
+                <li>Completion of UTHSC’s CON Agreement Intent to Enroll Form</li>
+            </ul>
+            <p>Students interested in enrolling in the pre-nursing program at Lane College should complete this form: <a href="#">Lane College UTHSC-PEP Nursing Program Information Request</a></p>
+        </section>
+
+        <section>
+            <h3>Requirements for Admission to the Traditional BSN Concentration</h3>
+            <p>Completion of an associate degree in interdisciplinary studies, pre-nursing track, from Lane with a minimum overall combined <strong>3.0 GPA</strong> (as computed by the UTHSC CON) and meeting all other requirements.</p>
+            <p>Minimum <strong>2.6</strong> or better for science prerequisite courses: <strong>BIO 344</strong> Human Anatomy and Physiology I with Lab (4 credits), <strong>BIO 345</strong> Human Anatomy and Physiology II with Lab (4 credits), and <strong>BIO 347</strong> Microbiology with Lab (4 credits).</p>
+        </section>
+
+        <section>
+            <h3>Requirements for Admission to the Accelerated BSN Concentration</h3>
+            <p>Completion of a baccalaureate degree from Lane with a minimum overall combined <strong>3.0 GPA</strong> (as computed by the UTHSC CON) and meeting all other requirements.</p>
+            <p>Minimum <strong>2.6</strong> or better for science prerequisite courses: <strong>BIO 344</strong>, <strong>BIO 345</strong>, and <strong>BIO 347</strong> (each with labs, 4 credits).</p>
+            <p>Students with any bachelor’s degree from Lane College are eligible, but they must complete the prerequisite courses. The Pre-nursing track in the Biology major includes all prerequisite and recommended courses.</p>
+            <p>More information about the Partnership Enrollment Program is available here: <a href="#">Nursing Partnership Enrollment Program at University of Tennessee Health Science Center</a></p>
+        </section>
+
+        <section>
+            <h2>Associate Degree of Science — Nursing Track (for Direct Admission to UTHSC BSN)</h2>
+            <p>General Education Requirements:</p>
+            <ul>
+                <li>First-year and Second Year Seminars — 5 courses (5 credits): ORN 110, LCC 112, LCC 120, CPI 101, LCC 210</li>
+                <li>Language Arts/Communication — 2 courses (6 hours): ENG 133, COM 230</li>
+                <li>Social & Behavioral Science — 2 courses (6 hours): SOC 131, PSY 130</li>
+                <li>Humanities & Fine Arts — 2 courses (6 hours): ENG 200-level literature option + one ART/MUS/REL/PHL choice</li>
+                <li>Mathematics — 2 courses (6 hours): MAT 133, MAT 233</li>
+                <li>Physical & Life Science — 2 courses (8 hours): BIO 141, BIO 142</li>
+                <li>Foreign Language — 1 course (3 credits): FRE 130 or SPN 130</li>
+                <li>Health & Fitness — 1 course (2 credits): PER 222 or PER 225</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Biology Pre-Nursing Track</h2>
+            <p>The Biology Pre-Nursing track lists major courses and general education requirements. Major totals and suggested academic pathway are included below.</p>
+
+            <table border="1" cellpadding="6" cellspacing="0">
+                <thead>
+                    <tr><th>Course No. / General Education Core</th><th>Cr</th><th>Prerequisite</th><th>Course No. / Major Courses</th><th>Cr</th><th>Prerequisite</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>ORN 110 Orientation</td><td>1</td><td></td><td>MAT 233 Probability and Statistics</td><td>3</td><td>MAT 133</td></tr>
+                    <tr><td>CPI 101 Career Pathways</td><td>1</td><td></td><td>BIO 225 Scientific Writing</td><td>2</td><td>ENG 132</td></tr>
+                    <tr><td>LCC 120 First-year Reading Seminar</td><td>1</td><td></td><td>BIO 243/L Molecular Biology/Lab</td><td>4</td><td>BIO 142</td></tr>
+                    <tr><td>LCC 112 First-Year Enrichment Seminar</td><td>1</td><td></td><td>BIO 341 Ecology and Environmental Bio</td><td>4</td><td>BIO 142</td></tr>
+                    <tr><td>LCC 210 Sophomore Seminar</td><td>1</td><td></td><td>BIO 343 Genetics</td><td>4</td><td>BIO 142</td></tr>
+                    <tr><td>CSC 131 Introduction to Computers</td><td>3</td><td></td><td>CHE 243/L Organic Chemistry I/Lab</td><td>4</td><td>CHE 142</td></tr>
+                    <tr><td>FIN 150 Personal Financial Management</td><td>2</td><td>MAT 133</td><td>CHE 244/L Organic Chemistry II/Lab</td><td>4</td><td>CHE 243</td></tr>
+                    <tr><td>REL 130 World Religions</td><td>3</td><td></td><td>PHY 241 General Physics I</td><td>4</td><td>MAT 140</td></tr>
+                    <tr><td>REL 131/132/231 Old/New Testament/Hist of the Blk Church</td><td>3</td><td></td><td>PHY 242 General Physics II</td><td>4</td><td>PHY 241</td></tr>
+                    <tr><td>ENG 133 Composition</td><td>3</td><td></td><td>BIO 315 Biology Seminar I</td><td>1</td><td>BIO 225</td></tr>
+                    <tr><td>ENG 200's Literature Option</td><td>3</td><td>ENG 133</td><td>BIO 316 Biology Seminar II</td><td>1</td><td>BIO 225</td></tr>
+                    <tr><td>COM 230 Public Communication</td><td>3</td><td>ENG 133</td><td>BIO 344 Human Anatomy & Physiology I</td><td>4</td><td>BIO 142</td></tr>
+                    <tr><td>MAT 133 College Algebra</td><td>3</td><td></td><td>BIO 345 Human Anatomy & Physiology II</td><td>4</td><td>BIO 344</td></tr>
+                    <tr><td>MAT 136 Trigonometry</td><td>3</td><td>MAT 133</td><td>BIO 347 Microbiology</td><td>4</td><td>BIO 142 &amp; CHE 142</td></tr>
+                    <tr><td>BIO 141/L General Biology I/Lab</td><td>4</td><td></td><td>PER 236 Nutrition</td><td>3</td><td></td></tr>
+                    <tr><td>BIO 142/L General Biology II/Lab</td><td>4</td><td>BIO 141</td><td>PSY 130 Introduction to Psychology</td><td>3</td><td></td></tr>
+                    <tr><td>CHE 141/L General Chemistry I/Lab</td><td>4</td><td></td><td>PSY 230 Human Growth and Development</td><td>3</td><td></td></tr>
+                    <tr><td>CHE 142/L General Chemistry II/Lab</td><td>4</td><td>CHE 141</td><td>SOC 131 Introduction to Sociology</td><td>3</td><td></td></tr>
+                    <tr><td>HIS 131/231/331 U.S. History I</td><td>3</td><td></td><td>FRE/SPN 130 Conversational French/Spanish</td><td>3</td><td></td></tr>
+                    <tr><td>ART/MUS Fine Arts Option</td><td>3</td><td></td><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+
+            <p><strong>Major Courses</strong> total: 59 &nbsp;&nbsp; <strong>General Education Core</strong> total: 61 &nbsp;&nbsp; <strong>Total Hours</strong>: 124</p>
+        </section>
+
+        <section>
+            <h2>Biology Pre-Nursing Suggested Academic Pathway</h2>
+
+            <h3>Freshman Year</h3>
+            <table border="1" cellpadding="6" cellspacing="0">
+                <thead><tr><th>Semester I</th><th>Cr.</th><th>Semester II</th><th>Cr.</th></tr></thead>
+                <tbody>
+                    <tr><td>ENG 133 Composition</td><td>3</td><td>BIO 142/L General Biology II/Lab</td><td>4</td></tr>
+                    <tr><td>MAT 133 College Algebra</td><td>3</td><td>MAT 136 College Trigonometry</td><td>3</td></tr>
+                    <tr><td>ORN 110 Orientation</td><td>1</td><td>CSC 131 Computer Science</td><td>3</td></tr>
+                    <tr><td>BIO 141/L General Biology I/Lab</td><td>4</td><td>ENG 2XX Literature</td><td>3</td></tr>
+                    <tr><td>CPI 101 Career Pathways</td><td>1</td><td>REL 130 World Religions</td><td>3</td></tr>
+                    <tr><td>LCC 112 First-Year Reading Seminar</td><td>1</td><td>LCC 120 First-Year Enrichment Seminar</td><td>1</td></tr>
+                    <tr><td>PER 222/225 Conditioning Exercise/ CPR</td><td>2</td><td></td><td></td></tr>
+                    <tr><td><strong>Total</strong></td><td><strong>16</strong></td><td><strong>Total</strong></td><td><strong>16</strong></td></tr>
+                </tbody>
+            </table>
+
+            <h3>Sophomore Year</h3>
+            <table border="1" cellpadding="6" cellspacing="0">
+                <thead><tr><th>Semester I</th><th>Cr.</th><th>Semester II</th><th>Cr.</th></tr></thead>
+                <tbody>
+                    <tr><td>MAT 233/240 Probability &amp; Statistics or Calculus I</td><td>3 or 4</td><td>CHE 142/L General Chemistry II/Lab</td><td>4</td></tr>
+                    <tr><td>CHE 141/L General Chemistry I/Lab</td><td>4</td><td>BIO 243/L Molecular Biology/Lab</td><td>4</td></tr>
+                    <tr><td>HIS 131/231/331 U.S./World/Black History I</td><td>3</td><td>HIS 132/232/332 U.S./World/Black History II</td><td>3</td></tr>
+                    <tr><td>FIN 150 Personal Finance</td><td>2</td><td>COM 230 Public Communication</td><td>3</td></tr>
+                    <tr><td>BIO 225 Scientific Writing</td><td>2</td><td>LCC 221 Sophomore Seminar</td><td>1</td></tr>
+                    <tr><td><strong>Total</strong></td><td><strong>15 or 16</strong></td><td><strong>Total</strong></td><td><strong>15</strong></td></tr>
+                </tbody>
+            </table>
+
+            <h3>Junior Year</h3>
+            <table border="1" cellpadding="6" cellspacing="0">
+                <thead><tr><th>Semester I</th><th>Cr.</th><th>Semester II</th><th>Cr.</th></tr></thead>
+                <tbody>
+                    <tr><td>FRE/SPN 130 French/Spanish Conversation</td><td>3</td><td>REL 131/132/231 Old/New Testament/Hist of Blk Church</td><td>3</td></tr>
+                    <tr><td>BIO 341 Ecology and Environmental Biology</td><td>4</td><td>BIO 343 Genetics</td><td>4</td></tr>
+                    <tr><td>CHE 243/L Organic Chemistry I/Lab</td><td>4</td><td>CHE 244/L Organic Chemistry II/Lab</td><td>4</td></tr>
+                    <tr><td>PHY 241/L Physics I/Lab</td><td>4</td><td>PHY 242/L Physics II/Lab</td><td>4</td></tr>
+                    <tr><td>BIO 315 Biology Seminar I</td><td>1</td><td></td><td></td></tr>
+                    <tr><td><strong>Total</strong></td><td><strong>16</strong></td><td><strong>Total</strong></td><td><strong>15</strong></td></tr>
+                </tbody>
+            </table>
+
+            <h3>Senior Year</h3>
+            <table border="1" cellpadding="6" cellspacing="0">
+                <thead><tr><th>Semester I</th><th>Cr.</th><th>Semester II</th><th>Cr.</th></tr></thead>
+                <tbody>
+                    <tr><td>BIO 344 Human Anatomy &amp; Physiology I</td><td>4</td><td>BIO 345 Human Anatomy &amp; Physiology II</td><td>4</td></tr>
+                    <tr><td>BIO 347 Microbiology</td><td>4</td><td>PER 236 Nutrition</td><td>3</td></tr>
+                    <tr><td>BIO 316 Biology Seminar II</td><td>1</td><td>PSY 130 Introduction to Psychology</td><td>3</td></tr>
+                    <tr><td>PSY 230 Human Growth and Development</td><td>3</td><td>SOC 131 Introduction to Sociology</td><td>3</td></tr>
+                    <tr><td>General Electives</td><td>4</td><td></td><td></td></tr>
+                    <tr><td><strong>Total</strong></td><td><strong>15</strong></td><td><strong>Total</strong></td><td><strong>14</strong></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <p><a href="index.html" class="back-link">Back to Home</a></p>
+    </main>
+</body>
+</html>
