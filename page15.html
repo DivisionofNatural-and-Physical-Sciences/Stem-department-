@@ -29,17 +29,123 @@
             border-radius:var(--border-radius);
             box-shadow:var(--shadow-lg);
         }
-        h1{font-size:1.6rem;margin:0 0 0.5rem}
+        h1{
+            font-size:1.6rem;
+            margin:0 0 1.5rem;
+            text-align:center;
+            border-bottom:2px solid var(--accent);
+            padding-bottom:0.5rem;
+            font-weight:700;
+        }
+        h2{
+            font-size:1.4rem;
+            margin:2rem 0 1rem;
+            color:var(--accent);
+            border-left:4px solid var(--accent);
+            padding-left:1rem;
+            font-weight:600;
+        }
+        h3{
+            font-size:1.2rem;
+            margin:1.5rem 0 0.8rem;
+            color:var(--muted);
+            font-weight:600;
+        }
+        
+        /* Section styling */
+        section{
+            background:rgba(255,255,255,0.95);
+            margin:2rem 0;
+            padding:1.5rem;
+            border-radius:8px;
+            border:1px solid rgba(45,122,107,0.2);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        /* Event highlight styling */
+        .event-highlight {
+            background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(125,211,193,0.1));
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .event-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .event-details {
+            background: rgba(255,255,255,0.8);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .detail-item {
+            margin: 0.5rem 0;
+            font-weight: 500;
+        }
+        
+        /* List styling */
+        ul{
+            margin:1rem 0;
+            padding-left:2rem;
+        }
+        ul li{
+            margin:0.5rem 0;
+            line-height:1.5;
+            font-weight:500;
+        }
+        
+        p{margin:1rem 0;font-weight:500}
         a{color:var(--accent);text-decoration:none}
         a:hover{text-decoration:underline}
     </style>
 </head>
 <body>
     <main>
-    <h1>Career Programs</h1>
-    <p>This page lists career-focused programs and pathways offered through the Division of Natural and Physical Sciences. Replace this placeholder with program descriptions, certificates, and links to application resources.</p>
+        <h1>Career Programs</h1>
+        
+        <div class="event-highlight">
+            <div class="event-title">🌟 Mock Interview Workshop - Healthcare & Medicine Focus</div>
+            <p><strong>Are you ready to take your next big step toward a career in healthcare or medicine?</strong></p>
+            <p>Career Services is hosting a Mock Interview Workshop to help you polish your professional presence and gain the confidence you need to shine in real interviews.</p>
+            
+            <div class="event-details">
+                <div class="detail-item"><strong>📅 Date:</strong> Wednesday, November 5, 2025</div>
+                <div class="detail-item"><strong>🕐 Time:</strong> 1:30 PM – 3:00 PM</div>
+                <div class="detail-item"><strong>📍 Location:</strong> Lower Kirkendoll / Student Center Building</div>
+            </div>
+            
+            <h3>During this session, you'll:</h3>
+            <ul>
+                <li>Participate in realistic, one-on-one mock interviews with professionals and faculty</li>
+                <li>Receive personalized feedback on your communication and interview style</li>
+                <li>Learn what employers in healthcare and medicine are really looking for</li>
+                <li>Build confidence for upcoming internships, graduate programs, and career opportunities</li>
+            </ul>
+            
+            <h3>🎯 Why This Matters:</h3>
+            <p>Participating in this session is more than just practice—it's preparation for success. Whether you're planning for medical school, nursing, or public health, the ability to articulate your goals and experiences effectively can set you apart from other applicants.</p>
+            
+            <p><strong>✨ Dress professionally and bring your résumé if you have one.</strong> Don't miss this opportunity to sharpen your skills and make a lasting impression!</p>
+            
+            <p><strong>Click here to RSVP, then we will contact you to set a time for your interview.</strong></p>
+        </div>
+
+        <section>
+            <h2>Career-Focused Programs</h2>
+            <p>The Division of Natural and Physical Sciences offers various career-focused programs and pathways designed to prepare students for success in their chosen fields. Our programs include certificate programs, internship opportunities, and professional development workshops.</p>
+        </section>
+
+        <img src="career.png" alt="Career Programs" style="margin: 2rem 0; border-radius: 8px; box-shadow: var(--shadow-md); max-width: 100%; height: auto;">
+
+        <img src="Vista Data Applied Gen AI Program Flyer.jpg" height="430" alt="Vista Data Applied Gen AI Program Flyer" style="margin: 2rem 0; border-radius: 8px; box-shadow: var(--shadow-md);">
+
         <p><a href="index.html">Back to Home</a></p>
     </main>
-</body>
-</html>
- <img src="Vista Data Applied Gen AI Program Flyer.jpg" height=430>
